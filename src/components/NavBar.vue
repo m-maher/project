@@ -23,9 +23,6 @@
               <router-link class="nav-link active" to="/">Home</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/about">About</router-link>
-            </li>
-            <li class="nav-item">
               <router-link class="nav-link" to="/services"
                 >Services</router-link
               >
@@ -34,7 +31,25 @@
               <router-link class="nav-link" to="/blog">Blog</router-link>
             </li>
             <li class="nav-item">
+              <router-link class="nav-link" to="/about">About</router-link>
+            </li>
+            <li class="nav-item">
               <router-link class="nav-link" to="/contact">Contact</router-link>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">
+                <div class="locale-changer">
+                  <select v-model="$i18n.locale" @change="setPageDirection">
+                    <option
+                      v-for="(lang, i) in langs"
+                      :key="`Lang${i}`"
+                      :value="lang"
+                    >
+                      {{ $t(`${lang}`) }}
+                    </option>
+                  </select>
+                </div>
+              </a>
             </li>
           </ul>
         </div>
@@ -42,3 +57,24 @@
     </nav>
   </div>
 </template>
+
+<script>
+export default {
+  name: "NavBar",
+  data() {
+    return { langs: ["ar", "en"] };
+  },
+  methods: {
+    setPageDirection() {
+      //eslint-disable-next-line
+      if (this.$i18n.locale == "en") {
+        document.body.style.direction = "ltr";
+        require("bootstrap/dist/css/bootstrap.min.css");
+      } else {
+        document.body.style.direction = "rtl";
+        require("bootstrap/dist/css/bootstrap.rtl.min.css");
+      }
+    },
+  },
+};
+</script>

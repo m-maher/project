@@ -29,8 +29,9 @@
     </div>
     <!-- /#banner end -->
 
-    <!-- #About Us Area start -->
-    <div id="about" class="back-right-text-c py-70 pt-100">
+    <InheritanceCalculator />
+
+    <!-- <div id="about" class="back-right-text-c py-70 pt-100">
       <div class="container">
         <div class="row text-center">
           <div class="title-left wow fadeInUp">
@@ -43,7 +44,6 @@
           </div>
         </div>
         <div class="row py-40 mt-50">
-          <!--#about-text start -->
           <div class="who_we_area col-md-4 col-sm-6 col-4pad">
             <div class="service-1">
               <div class="servise-top wow fadeInUp">
@@ -89,10 +89,8 @@
               </div>
             </div>
           </div>
-          <!--#End about-text  -->
         </div>
         <div class="row about_row py-40">
-          <!--#about-text start -->
           <div class="who_we_area col-md-4 col-sm-6 col-4pad">
             <div class="service-1">
               <div class="servise-top wow fadeInUp">
@@ -138,13 +136,12 @@
               </div>
             </div>
           </div>
-          <!--#End about-text  -->
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!--#Our Testimonial Area start-->
-    <section id="testimonials" class="testimonial_area row">
+    <!-- <section id="testimonials" class="testimonial_area row">
       <div class="container">
         <div class="title wow fadeInUp"></div>
         <div class="testimonial_carosel">
@@ -234,12 +231,17 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 
 <script>
+import InheritanceCalculator from "../components/InheritanceCalculator.vue";
+
 export default {
   name: "ServicesPage",
+    components: {
+    InheritanceCalculator,
+  },
 };
 </script>

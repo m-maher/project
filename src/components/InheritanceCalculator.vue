@@ -134,6 +134,19 @@
                 </table>
               </div>
             </div>
+            <div class="col-md-10">
+              <div
+                v-for="item in finalData"
+                :key="item.id"
+                class="border border-dark mb-5 p-4"
+              >
+                <p>{{ $t(`${item.name}`) }}</p>
+                <p>{{ item.proofType }}</p>
+                <p>{{ item.noQVerse }}</p>
+                <p>{{ item.surahQName }}</p>
+                <p>{{ item.textAr }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -185,6 +198,7 @@ import {
   defaultHeirs,
   calculate,
 } from "@hu-bcs1/islamic-inheritance-calculator";
+import data from "./data";
 
 export default {
   name: "InheritanceCalculator",
@@ -196,6 +210,9 @@ export default {
       selected: {},
       results: [],
       isDisabled: true,
+      allSelectedHeirs: "",
+      heirsRef: "",
+      finalData: "",
     };
   },
   methods: {
@@ -222,16 +239,120 @@ export default {
     },
     selectedHeirs: function (heirs) {
       this.results = [];
-      console.log(heirs);
-      console.log(this.results);
+      this.allSelectedHeirs = heirs;
       //eslint-disable-next-line
       this.results = calculate(heirs);
-      console.log(this.results);
-      this.printResults(this.results);
+      // this.printResults(this.results);
+      this.getRef(this.allSelectedHeirs, this.results);
     },
     printResults: function (results) {
       const fractionToString = (r) => ({ ...r, share: r.share.toFraction() });
-      console.log(results.map(fractionToString));
+      return results.map(fractionToString);
+    },
+    getRef(selection, results) {
+      results = this.printResults(results);
+      console.log(results);
+      this.finalData = [];
+      for (let i in selection) {
+        this.heirsRef.forEach((item) => {
+          // husband
+          if (item.name == i && i == "husband" && selection[i] != 0) {
+            results.forEach((result) => {
+              // husband share 1/2
+              if (
+                result.name == "husband" &&
+                result.share == "1/2" &&
+                item.propId == 1
+              ) {
+                this.finalData.push(item);
+              }
+              // husband share 1/4
+              if (
+                result.name == "husband" &&
+                result.share == "1/4" &&
+                item.propId == 2
+              ) {
+                this.finalData.push(item);
+              }
+            });
+          }
+
+          // wife
+          if (item.name == i && i == "wife" && selection[i] != 0) {
+            results.forEach((result) => {
+              // wife share 1/4
+              if (
+                result.name == "wife" &&
+                result.share == "1/4" &&
+                item.propId == 3
+              ) {
+                this.finalData.push(item);
+              }
+              // wife share 1/8
+              if (
+                result.name == "wife" &&
+                result.share == "1/8" &&
+                item.propId == 4
+              ) {
+                this.finalData.push(item);
+              }
+            });
+          }
+
+          // son
+          if (item.name == i && i == "son" && selection[i] != 0) {
+            // son with female
+            if (
+              selection.daughter != undefined &&
+              selection.daughter != 0 &&
+              item.propId == 5
+            ) {
+              this.finalData.push(item);
+            }
+            // son without female
+            if (
+              (selection.daughter == undefined || selection.daughter == 0) &&
+              item.propId == 6
+            ) {
+              this.finalData.push(item);
+            }
+          }
+
+          // daughter
+          if (item.name == i && i == "daughter" && selection[i] != 0) {
+            results.forEach((result) => {
+              // daughter share 1/2
+              if (
+                result.name == "daughter" &&
+                result.count == 1 &&
+                (result.share == "1/2" || result.share == "3/4") &&
+                item.propId == 7
+              ) {
+                this.finalData.push(item);
+              }
+              // daughter share 2/3
+              if (
+                result.name == "daughter" &&
+                result.count > 1 &&
+                (selection.son == undefined || selection.son == 0) &&
+                item.propId == 8
+              ) {
+                this.finalData.push(item);
+              }
+              // daughter has male
+              if (
+                selection.son != undefined &&
+                selection.son != 0 &&
+                item.propId == 9
+              ) {
+                this.finalData.push(item);
+              }
+            });
+          }
+        });
+      }
+      this.finalData = new Set(this.finalData);
+      console.log(this.finalData);
     },
     chooseGender(gender) {
       this.isDisabled = false;
@@ -247,23 +368,12 @@ export default {
     },
   },
   mounted() {
-    console.log(this.heirs);
-    // function printResults(results) {
-    //   const fractionToString = (r) => ({ ...r, share: r.share.toFraction() });
-    //   console.log(results.map(fractionToString));
-    // }
-    // const result = calculate({ wife: 3, son: 4, daughter: 4 });
-    // printResults(result);
-
-    // const zip = (a, b) => a.map((e, i) => [e, b[i]]);
+    // console.log(data);
+    this.heirsRef = data;
+    // console.log(this.heirs);
     delete this.heirs.husband;
     delete this.heirs.wife;
     this.heirNames = Object.keys(this.heirs);
-    // console.log(this.heirNames);
-    // this.twoColumnHeirNames = zip(
-    //   this.heirNames.slice(0, this.heirNames.length / 2),
-    //   this.heirNames.slice(this.heirNames.length / 2)
-    // );
   },
 };
 </script>
