@@ -8,9 +8,9 @@
             <div class="row">
               <!-- #banner-text start -->
               <div id="banner-text" class="col-md-12 text-c text-center">
-                <h5 class="wow fadeInUp main-h" data-wow-delay="0.2s">
-                  services
-                </h5>
+                <div class="wow fadeInUp main-h" data-wow-delay="0.2s">
+                  <h1>حساب نسبة الميراث</h1>
+                </div>
                 <p
                   class="banner-text wow fadeInUp main-h3"
                   data-wow-delay="0.8s"
@@ -240,7 +240,7 @@ import InheritanceCalculator from "../components/InheritanceCalculator.vue";
 
 export default {
   name: "ServicesPage",
-    components: {
+  components: {
     InheritanceCalculator,
   },
 };

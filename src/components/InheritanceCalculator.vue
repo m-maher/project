@@ -2,9 +2,6 @@
   <div class="hello">
     <div class="container-fluid">
       <div class="row justify-content-center py-5">
-        <div class="col-12 text-center mb-5">
-          <h1>حساب نسبة الميراث</h1>
-        </div>
         <div class="col-md-6">
           <div class="row justify-content-center mb-3">
             <div class="col-4">
@@ -116,6 +113,7 @@
                     <tr>
                       <th scope="col">{{ $t("heir_type") }}</th>
                       <th scope="col">{{ $t("heir_count") }}</th>
+                      <th scope="col">{{ $t("share_type") }}</th>
                       <th scope="col">{{ $t("share_fraction") }}</th>
                       <th scope="col">{{ $t("share_percentage") }}</th>
                     </tr>
@@ -125,8 +123,9 @@
                       v-for="item in results"
                       :key="`${item.name}-${item.type}`"
                     >
-                      <td>{{ item.name }}</td>
+                      <td>{{ $t(`${item.name}`) }}</td>
                       <td>{{ item.count }}</td>
+                      <td>{{ item.type }}</td>
                       <td>{{ item.share.toFraction() }}</td>
                       <td>{{ toPercentage(item.share).toFixed(2) }}%</td>
                     </tr>
@@ -141,6 +140,7 @@
                 class="border border-dark mb-5 p-4"
               >
                 <p>{{ $t(`${item.name}`) }}</p>
+                <p>{{ item.causing }}</p>
                 <p>{{ item.proofType }}</p>
                 <p>{{ item.noQVerse }}</p>
                 <p>{{ item.surahQName }}</p>
@@ -344,6 +344,242 @@ export default {
                 selection.son != undefined &&
                 selection.son != 0 &&
                 item.propId == 9
+              ) {
+                this.finalData.push(item);
+              }
+            });
+          }
+
+          // paternal_grand_son
+          if (
+            item.name == i &&
+            i == "paternal_grand_son" &&
+            selection[i] != 0
+          ) {
+            // paternal_grand_son blocked by son
+            if (
+              selection.son != undefined &&
+              selection.son != 0 &&
+              item.propId == 10
+            ) {
+              this.finalData.push(item);
+            }
+            // paternal_grand_son with female
+            if (
+              (selection.son == undefined || selection.son == 0) &&
+              selection.paternal_grand_daughter != undefined &&
+              selection.paternal_grand_daughter != 0 &&
+              item.propId == 11
+            ) {
+              this.finalData.push(item);
+            }
+            // paternal_grand_son without female
+            if (
+              (selection.son == undefined || selection.son == 0) &&
+              (selection.paternal_grand_daughter == undefined ||
+                selection.paternal_grand_daughter == 0) &&
+              item.propId == 12
+            ) {
+              this.finalData.push(item);
+            }
+          }
+
+          // paternal_grand_daughter
+          if (
+            item.name == i &&
+            i == "paternal_grand_daughter" &&
+            selection[i] != 0 &&
+            (selection.son == undefined || selection.son == 0)
+          ) {
+            results.forEach((result) => {
+              // paternal_grand_daughter share 1/2
+              if (
+                result.name == "paternal_grand_daughter" &&
+                result.count == 1 &&
+                (result.share == "1/2" || result.share == "3/4") &&
+                item.propId == 13
+              ) {
+                this.finalData.push(item);
+              }
+              // paternal_grand_daughter share 2/3
+              if (
+                result.name == "paternal_grand_daughter" &&
+                result.count > 1 &&
+                (selection.daughter == undefined || selection.daughter == 0) &&
+                (selection.paternal_grand_son == undefined ||
+                  selection.paternal_grand_son == 0) &&
+                item.propId == 14
+              ) {
+                this.finalData.push(item);
+              }
+              // paternal_grand_daughter share 1/6
+              if (
+                selection.daughter != undefined &&
+                selection.daughter != 0 &&
+                result.share == "1/6" &&
+                item.propId == 16
+              ) {
+                this.finalData.push(item);
+              }
+            });
+
+            // paternal_grand_daughter with paternal_grand_son
+            if (
+              selection.paternal_grand_son != undefined &&
+              selection.paternal_grand_son != 0 &&
+              item.propId == 15
+            ) {
+              this.finalData.push(item);
+            }
+          }
+
+          // father
+          if (item.name == i && i == "father" && selection[i] != 0) {
+            results.forEach((result) => {
+              // father share 1/6
+              if (result.name == "father" && result.share == "1/6") {
+                if (
+                  ((selection.son != undefined && selection.son != 0) ||
+                    (selection.paternal_grand_son != undefined &&
+                      selection.paternal_grand_son != 0)) &&
+                  item.propId == 18
+                ) {
+                  this.finalData.push(item);
+                }
+                if (
+                  ((selection.daughter != undefined &&
+                    selection.daughter != 0) ||
+                    (selection.paternal_grand_daughter != undefined &&
+                      selection.paternal_grand_daughter != 0)) &&
+                  item.propId == 19
+                ) {
+                  this.finalData.push(item);
+                }
+              }
+
+              // father without branch
+              if (
+                (selection.son == undefined || selection.son == 0) &&
+                (selection.paternal_grand_son == undefined ||
+                  selection.paternal_grand_son == 0) &&
+                (selection.daughter == undefined || selection.daughter == 0) &&
+                (selection.paternal_grand_daughter == undefined ||
+                  selection.paternal_grand_daughter == 0) &&
+                item.propId == 20
+              ) {
+                this.finalData.push(item);
+              }
+            });
+          }
+
+          // mother
+          if (item.name == i && i == "mother" && selection[i] != 0) {
+            results.forEach((result) => {
+              // mother share 1/6
+              if (
+                result.name == "mother" &&
+                result.share == "1/6" &&
+                item.propId == 21
+              ) {
+                this.finalData.push(item);
+              }
+              // mother share 1/3
+              if (
+                result.name == "mother" &&
+                result.share == "1/3" &&
+                item.propId == 22
+              ) {
+                this.finalData.push(item);
+              }
+            });
+          }
+
+          // full_brother
+          if (
+            item.name == i &&
+            i == "full_brother" &&
+            selection[i] != 0 &&
+            (selection.son == undefined || selection.son == 0) &&
+            (selection.father == undefined || selection.father == 0) &&
+            item.propId == 28
+          ) {
+            this.finalData.push(item);
+          }
+
+          // maternal_sibling
+          if (item.name == i && i == "maternal_sibling" && selection[i] != 0) {
+            results.forEach((result) => {
+              // maternal_sibling share 1/6
+              if (
+                result.name == "maternal_sibling" &&
+                result.share == "1/6" &&
+                result.count == 1 &&
+                item.propId == 32
+              ) {
+                this.finalData.push(item);
+              }
+              // maternal_sibling share 1/3
+              if (
+                result.name == "maternal_sibling" &&
+                result.share == "1/3" &&
+                result.count > 1 &&
+                item.propId == 33
+              ) {
+                this.finalData.push(item);
+              }
+            });
+          }
+
+          // full_sister
+          if (item.name == i && i == "full_sister" && selection[i] != 0) {
+            results.forEach((result) => {
+              // full_sister share 1/2
+              if (
+                result.name == "full_sister" &&
+                result.share == "1/2" &&
+                result.count == 1 &&
+                (selection.full_brother == undefined ||
+                  selection.full_brother == 0) &&
+                item.propId == 38
+              ) {
+                this.finalData.push(item);
+              }
+              // full_sister share 2/3
+              if (
+                result.name == "full_sister" &&
+                result.share == "2/3" &&
+                result.count > 1 &&
+                (selection.full_brother == undefined ||
+                  selection.full_brother == 0) &&
+                item.propId == 39
+              ) {
+                this.finalData.push(item);
+              }
+            });
+          }
+
+          // paternal_sister
+          if (item.name == i && i == "paternal_sister" && selection[i] != 0) {
+            results.forEach((result) => {
+              // paternal_sister share 1/2
+              if (
+                result.name == "paternal_sister" &&
+                result.share == "1/2" &&
+                result.count == 1 &&
+                (selection.paternal_brother == undefined ||
+                  selection.paternal_brother == 0) &&
+                item.propId == 43
+              ) {
+                this.finalData.push(item);
+              }
+              // paternal_sister share 2/3
+              if (
+                result.name == "full_sister" &&
+                result.share == "2/3" &&
+                result.count > 1 &&
+                (selection.paternal_brother == undefined ||
+                  selection.paternal_brother == 0) &&
+                item.propId == 44
               ) {
                 this.finalData.push(item);
               }

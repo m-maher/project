@@ -5,6 +5,7 @@
   "male": "Male",
   "female": "Female",
   "heir_type": "Heir type",
+  "share_type": "Share Type",
   "heir_count": "No. of heirs",
   "share_fraction": "Share Fraction",
   "share_percentage": "Share Percentage",
