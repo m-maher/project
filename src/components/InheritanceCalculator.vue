@@ -33,76 +33,43 @@
               <h2>{{ $t("heir_count") }}</h2>
             </div>
           </div>
-          <div
-            class="row justify-content-center mb-3"
-            v-for="(name, index) in spouse"
-            :key="'A' + index"
-          >
-            <div class="col-4">
-              <label for="inputState" class="form-label">{{
-                $t(`${name}`)
-              }}</label>
+          <template v-for="(name, index) in heirNames">
+            <div
+              class="row justify-content-center mb-3"
+              v-if="heirs[name] != null"
+              :key="index"
+            >
+              <div class="col-4">
+                <label for="inputState" class="form-label">{{
+                  $t(`${name}`)
+                }}</label>
+              </div>
+              <div class="col-6">
+                <select
+                  id="inputState"
+                  class="form-select"
+                  :value="heirs[name]"
+                  v-on:change="
+                    (e) => handleCountChange(name, parseInt(e.target.value))
+                  "
+                  :disabled="isDisabled"
+                >
+                  <template v-if="maxCount() > 1">
+                    <option
+                      v-for="(count, index) in range(maxCount(name) + 1)"
+                      :key="index"
+                    >
+                      {{ count }}
+                    </option>
+                  </template>
+                  <template v-else>
+                    <option value="0">no</option>
+                    <option value="1">yes</option>
+                  </template>
+                </select>
+              </div>
             </div>
-            <div class="col-6">
-              <select
-                id="inputState"
-                class="form-select"
-                :value="0"
-                v-on:change="
-                  (e) => handleCountChange(name, parseInt(e.target.value))
-                "
-                :disabled="isDisabled"
-              >
-                <template v-if="maxCount() > 1">
-                  <option
-                    v-for="(count, index) in range(maxCount(name) + 1)"
-                    :key="index"
-                  >
-                    {{ count }}
-                  </option>
-                </template>
-                <template v-else>
-                  <option value="0">no</option>
-                  <option value="1">yes</option>
-                </template>
-              </select>
-            </div>
-          </div>
-          <div
-            class="row justify-content-center mb-3"
-            v-for="(name, index) in heirNames"
-            :key="index"
-          >
-            <div class="col-4">
-              <label for="inputState" class="form-label">{{
-                $t(`${name}`)
-              }}</label>
-            </div>
-            <div class="col-6">
-              <select
-                id="inputState"
-                class="form-select"
-                :value="heirs[name]"
-                v-on:change="
-                  (e) => handleCountChange(name, parseInt(e.target.value))
-                "
-                :disabled="isDisabled"
-              >
-                <template v-if="maxCount() > 1">
-                  <option
-                    v-for="(count, index) in range(maxCount(name) + 1)"
-                    :key="index"
-                  >
-                    {{ count }}
-                  </option>
-                </template>
-                <template v-else>
-                  <option value="0">no</option>
-                  <option value="1">yes</option>
-                </template>
-              </select>
-            </div>
-          </div>
+          </template>
         </div>
         <div class="col-md-6">
           <div class="row justify-content-center">
@@ -206,7 +173,6 @@ export default {
     return {
       heirs: defaultHeirs,
       heirNames: "",
-      spouse: [],
       selected: {},
       results: [],
       isDisabled: true,
@@ -241,7 +207,9 @@ export default {
       this.results = [];
       this.allSelectedHeirs = heirs;
       //eslint-disable-next-line
-      this.results = calculate(heirs);
+      if (this.allSelectedHeirs != "") {
+        this.results = calculate(this.allSelectedHeirs);
+      }
       // this.printResults(this.results);
       this.getRef(this.allSelectedHeirs, this.results);
     },
@@ -585,6 +553,317 @@ export default {
               }
             });
           }
+
+          // full_nephew
+          if (item.name == i && i == "full_nephew" && selection[i] != 0) {
+            // full_nephew without male
+            if (
+              (selection.son == undefined || selection.son == 0) &&
+              (selection.father == undefined || selection.father == 0) &&
+              (selection.full_brother == undefined ||
+                selection.full_brother == 0) &&
+              (selection.paternal_brother == undefined ||
+                selection.paternal_brother == 0) &&
+              item.propId == 49
+            ) {
+              this.finalData.push(item);
+            }
+
+            // full_nephew with male
+            if (
+              ((selection.son != undefined && selection.son != 0) ||
+                (selection.father != undefined && selection.father != 0) ||
+                (selection.full_brother != undefined &&
+                  selection.full_brother != 0) ||
+                (selection.paternal_brother != undefined &&
+                  selection.paternal_brother != 0)) &&
+              item.propId == 51
+            ) {
+              this.finalData.push(item);
+            }
+          }
+
+          // paternal_nephew
+          if (item.name == i && i == "paternal_nephew" && selection[i] != 0) {
+            // paternal_nephew without male
+            if (
+              (selection.son == undefined || selection.son == 0) &&
+              (selection.father == undefined || selection.father == 0) &&
+              (selection.full_brother == undefined ||
+                selection.full_brother == 0) &&
+              (selection.paternal_brother == undefined ||
+                selection.paternal_brother == 0) &&
+              item.propId == 52
+            ) {
+              this.finalData.push(item);
+            }
+
+            // paternal_nephew with male
+            if (
+              ((selection.son != undefined && selection.son != 0) ||
+                (selection.father != undefined && selection.father != 0) ||
+                (selection.full_brother != undefined &&
+                  selection.full_brother != 0) ||
+                (selection.paternal_brother != undefined &&
+                  selection.paternal_brother != 0)) &&
+              item.propId == 54
+            ) {
+              this.finalData.push(item);
+            }
+          }
+
+          // full_paternal_uncle
+          if (
+            item.name == i &&
+            i == "full_paternal_uncle" &&
+            selection[i] != 0
+          ) {
+            // full_paternal_uncle without male
+            if (
+              (selection.son == undefined || selection.son == 0) &&
+              (selection.father == undefined || selection.father == 0) &&
+              (selection.full_brother == undefined ||
+                selection.full_brother == 0) &&
+              (selection.paternal_brother == undefined ||
+                selection.paternal_brother == 0) &&
+              item.propId == 55
+            ) {
+              this.finalData.push(item);
+            }
+
+            // full_paternal_uncle with male
+            if (
+              ((selection.son != undefined && selection.son != 0) ||
+                (selection.father != undefined && selection.father != 0) ||
+                (selection.full_brother != undefined &&
+                  selection.full_brother != 0) ||
+                (selection.paternal_brother != undefined &&
+                  selection.paternal_brother != 0)) &&
+              item.propId == 56
+            ) {
+              this.finalData.push(item);
+            }
+          }
+
+          // paternal_paternal_uncle
+          if (
+            item.name == i &&
+            i == "paternal_paternal_uncle" &&
+            selection[i] != 0
+          ) {
+            // paternal_paternal_uncle without male
+            if (
+              (selection.son == undefined || selection.son == 0) &&
+              (selection.father == undefined || selection.father == 0) &&
+              (selection.full_brother == undefined ||
+                selection.full_brother == 0) &&
+              (selection.paternal_brother == undefined ||
+                selection.paternal_brother == 0) &&
+              (selection.full_paternal_uncle == undefined ||
+                selection.full_paternal_uncle == 0) &&
+              item.propId == 57
+            ) {
+              this.finalData.push(item);
+            }
+
+            // paternal_paternal_uncle with male
+            if (
+              ((selection.son != undefined && selection.son != 0) ||
+                (selection.father != undefined && selection.father != 0) ||
+                (selection.full_brother != undefined &&
+                  selection.full_brother != 0) ||
+                (selection.paternal_brother != undefined &&
+                  selection.paternal_brother != 0) ||
+                (selection.full_paternal_uncle != undefined &&
+                  selection.full_paternal_uncle != 0)) &&
+              item.propId == 58
+            ) {
+              this.finalData.push(item);
+            }
+          }
+
+          // full_cousin
+          if (item.name == i && i == "full_cousin" && selection[i] != 0) {
+            // full_cousin without male
+            if (
+              (selection.son == undefined || selection.son == 0) &&
+              (selection.father == undefined || selection.father == 0) &&
+              (selection.full_brother == undefined ||
+                selection.full_brother == 0) &&
+              (selection.full_paternal_uncle == undefined ||
+                selection.full_paternal_uncle == 0) &&
+              (selection.paternal_paternal_uncle == undefined ||
+                selection.paternal_paternal_uncle == 0) &&
+              item.propId == 59
+            ) {
+              this.finalData.push(item);
+            }
+
+            // full_cousin with male
+            if (
+              ((selection.son != undefined && selection.son != 0) ||
+                (selection.father != undefined && selection.father != 0) ||
+                (selection.full_brother != undefined &&
+                  selection.full_brother != 0) ||
+                (selection.paternal_brother != undefined &&
+                  selection.paternal_brother != 0) ||
+                (selection.full_paternal_uncle != undefined &&
+                  selection.full_paternal_uncle != 0) ||
+                (selection.paternal_paternal_uncle != undefined &&
+                  selection.paternal_paternal_uncle != 0)) &&
+              item.propId == 60
+            ) {
+              this.finalData.push(item);
+            }
+          }
+
+          // paternal_cousin
+          if (item.name == i && i == "paternal_cousin" && selection[i] != 0) {
+            // paternal_cousin without male
+            if (
+              (selection.son == undefined || selection.son == 0) &&
+              (selection.father == undefined || selection.father == 0) &&
+              (selection.full_brother == undefined ||
+                selection.full_brother == 0) &&
+              (selection.paternal_brother == undefined ||
+                selection.paternal_brother == 0) &&
+              (selection.full_paternal_uncle == undefined ||
+                selection.full_paternal_uncle == 0) &&
+              (selection.paternal_paternal_uncle == undefined ||
+                selection.paternal_paternal_uncle == 0) &&
+              item.propId == 61
+            ) {
+              this.finalData.push(item);
+            }
+
+            // paternal_cousin with male
+            if (
+              ((selection.son != undefined && selection.son != 0) ||
+                (selection.father != undefined && selection.father != 0) ||
+                (selection.full_brother != undefined &&
+                  selection.full_brother != 0) ||
+                (selection.paternal_brother != undefined &&
+                  selection.paternal_brother != 0) ||
+                (selection.full_paternal_uncle != undefined &&
+                  selection.full_paternal_uncle != 0) ||
+                (selection.full_cousin != undefined &&
+                  selection.full_cousin != 0)) &&
+              item.propId == 62
+            ) {
+              this.finalData.push(item);
+            }
+          }
+
+          // paternal_grand_father
+          if (
+            item.name == i &&
+            i == "paternal_grand_father" &&
+            selection[i] != 0
+          ) {
+            results.forEach((result) => {
+              // paternal_grand_father share 1/6
+              if (
+                result.name == "paternal_grand_father" &&
+                result.share == "1/6" &&
+                (selection.father == undefined || selection.father == 0)
+              ) {
+                // paternal_grand_father without father or male
+                if (
+                  (selection.son == undefined ||
+                    selection.son == 0 ||
+                    selection.paternal_grand_son == undefined ||
+                    selection.paternal_grand_son == 0) &&
+                  item.propId == 63
+                ) {
+                  this.finalData.push(item);
+                }
+                // paternal_grand_father without father or female
+                if (
+                  (selection.daughter == undefined ||
+                    selection.daughter == 0 ||
+                    selection.paternal_grand_daughter == undefined ||
+                    selection.paternal_grand_daughter == 0) &&
+                  item.propId == 64
+                ) {
+                  this.finalData.push(item);
+                }
+              }
+            });
+            // paternal_grand_father with father
+            if (
+              selection.father != undefined &&
+              selection.father != 0 &&
+              item.propId == 65
+            ) {
+              this.finalData.push(item);
+            }
+          }
+
+          // paternal_grand_mother
+          if (
+            item.name == i &&
+            i == "paternal_grand_mother" &&
+            selection[i] != 0
+          ) {
+            results.forEach((result) => {
+              // paternal_grand_mother share 1/6
+              if (
+                result.name == "paternal_grand_mother" &&
+                result.share == "1/6" &&
+                (selection.father == undefined || selection.father == 0) &&
+                (selection.mother == undefined || selection.mother == 0) &&
+                item.propId == 66
+              ) {
+                this.finalData.push(item);
+              }
+
+              // paternal_grand_mother share 1/8
+              if (
+                result.name == "paternal_grand_mother" &&
+                result.share == "1/8" &&
+                (selection.father == undefined || selection.father == 0) &&
+                (selection.mother == undefined || selection.mother == 0) &&
+                selection.maternal_grand_mother != undefined &&
+                selection.maternal_grand_mother != 0 &&
+                item.propId == 67
+              ) {
+                this.finalData.push(item);
+              }
+            });
+          }
+
+          // maternal_grand_mother
+          if (
+            item.name == i &&
+            i == "maternal_grand_mother" &&
+            selection[i] != 0
+          ) {
+            results.forEach((result) => {
+              // maternal_grand_mother share 1/6
+              if (
+                result.name == "maternal_grand_mother" &&
+                result.share == "1/6" &&
+                (selection.father == undefined || selection.father == 0) &&
+                (selection.mother == undefined || selection.mother == 0) &&
+                item.propId == 68
+              ) {
+                this.finalData.push(item);
+              }
+
+              // maternal_grand_mother share 1/8
+              if (
+                result.name == "maternal_grand_mother" &&
+                result.share == "1/8" &&
+                (selection.father == undefined || selection.father == 0) &&
+                (selection.mother == undefined || selection.mother == 0) &&
+                selection.maternal_grand_mother != undefined &&
+                selection.maternal_grand_mother != 0 &&
+                item.propId == 69
+              ) {
+                this.finalData.push(item);
+              }
+            });
+          }
         });
       }
       this.finalData = new Set(this.finalData);
@@ -593,10 +872,14 @@ export default {
     chooseGender(gender) {
       this.isDisabled = false;
       this.selected = {};
+      this.selectedHeirs("");
+      for (let item in this.heirs) {
+        this.heirs[item] = 0;
+      }
       if (gender == "male") {
-        this.spouse = ["wife"];
+        this.heirs["husband"] = null;
       } else {
-        this.spouse = ["husband"];
+        this.heirs["wife"] = null;
       }
     },
     toPercentage: (fr) => {
@@ -604,11 +887,9 @@ export default {
     },
   },
   mounted() {
-    // console.log(data);
     this.heirsRef = data;
-    // console.log(this.heirs);
-    delete this.heirs.husband;
-    delete this.heirs.wife;
+    this.heirs.husband = null;
+    this.heirs.wife = null;
     this.heirNames = Object.keys(this.heirs);
   },
 };

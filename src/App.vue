@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <NavBar />
+    <!-- <NavBar /> -->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue'
+// import NavBar from '@/components/NavBar.vue'
 
 export default {
   name: "App",
   components: {
-    NavBar
+    // NavBar
   },
   mounted() {
     document.body.style.direction = "rtl";
