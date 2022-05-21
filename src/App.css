@@ -324,17 +324,6 @@ dt {
 
 /* Header Aera */
 
-.header_area {
-  background: no-repeat !important;
-  border-radius: 0;
-  border: 0;
-  margin: 0;
-
-  padding: 70px 0px;
-  width: 100%;
-  z-index: 9999;
-  top: 0;
-}
 .header_area .searchForm {
   height: 0;
   overflow: hidden;
@@ -1517,7 +1506,7 @@ label {
 
 .clip-polygon {
   background-color: #fff !important;
-  /* background: url(../images/s-left-1.png) left top no-repeat; */
+  background: url(./assets/images/LAW-31.jpg) left no-repeat;
 
   clip-path: polygon(
     0% 25%,
@@ -2548,9 +2537,6 @@ h3.blog-title {
   .hero__player {
     height: 200px !important;
     width: 100%;
-  }
-  .header_area {
-    padding: 30px 0px !important;
   }
   .button-banner {
     padding: 18px 30px !important;

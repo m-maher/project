@@ -215,6 +215,27 @@
         "ref_4": "i. Deceased has multiple maternal siblings",
         "ref_5": "ii. Deceased does not have any male offspring",
         "ref_6": "iii. Deceased does not have any male paternal ancestors Residual Shares (H2)"
+      },
+      "tasib": {
+        "ranking": "14) Tasib ranking in order",
+        "son_daughter": "1. Son, daughter",
+        "paternal_grandson_paternal_granddaughter": "2. Paternal Grandson, paternal Granddaughter",
+        "father": "3. Father",
+        "full_brother_full_sister": "4. Full Brother, Full sister",
+        "paternal_brother_paternal_sister": "5. Paternal Brother, Paternal Sister",
+        "paternal_grandfather": "6. Paternal Grandfather",
+        "full_brother's_son": "7. Full brother’s son",
+        "paternal_brother's_son": "8. Paternal brother’s son",
+        "full_brother's_son's_son": "9. Full brother’s son’s son",
+        "paternal_brother_son's_son": "10. Paternal brother son’s son",
+        "paternal_uncle": "11. Paternal uncle (father’s full brother)",
+        "paternal_paternal_uncle": "12. Paternal paternal uncle (father’s paternal brother)",
+        "paternal_uncle's_son": "13. Paternal uncle’s son (father’s brother’s son)",
+        "paternal_paternal_uncle's_son": "14) Paternal paternal uncle’s son (father’s paternal brother’s son)",
+        "paternal_uncle's_son's_son": "15. Paternal uncle’s son’s son (father’s brother’s son’ s son)",
+        "paternal_paternal_uncle's_son's_son": "16. Paternal paternal uncle’s son’s son (father’s paternal brother’s son’s son)",
+        "paternal_uncle's_son's_son's_son": "17. Paternal uncle’s son’s son’s son (father’s brother’s son’ s son’s son)",
+        "paternal_paternal_uncle's_son's_son's_son": "18. Paternal paternal uncle’s son’s son’s son (father’s paternal brother’s son’s son’s son)"
       }
     }
   }

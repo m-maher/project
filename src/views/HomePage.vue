@@ -56,9 +56,9 @@
           <div class="row text-left about_row">
             <div class="col-md-6 p-0 clip-polygon">
               <div class="video-img">
-                <a class="hero__play"
+                <!-- <a class="hero__play"
                   ><img src="../assets/images/LAW-31.jpg"
-                /></a>
+                /></a> -->
               </div>
             </div>
             <div class="col-md-6 wow fadeInUp">
