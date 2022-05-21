@@ -1,17 +1,21 @@
-@import url("https://fonts.googleapis.com/css?family=Cairo:400,700&display=swap");
+
+
+@font-face {
+  font-family: Amiri;
+  src: url(../src/assets/fonts/Amiri-Regular/Amiri-Regular.ttf),
+    url(../src/assets/fonts/Amiri-Regular/Amiri-Regular.eot),
+    url(../src/assets/fonts/Amiri-Regular/Amiri-Regular.svg),
+    url(../src/assets/fonts/Amiri-Regular/Amiri-Regular.woff),
+    url(../src/assets/fonts/Amiri-Regular/Amiri-Regular.woff2);
+}
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Cairo", sans-serif;
+  font-family: Amiri !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #ffffff;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 table {
@@ -219,13 +223,7 @@ a {
   padding: 0;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  /*Section Fix*/
-}
-
 body p {
-  font-family: "Open Sans", sans-serif;
   line-height: 26px;
   color: #555555;
   font-size: 16px;
@@ -235,7 +233,6 @@ body section.row,
 body header.row,
 body footer.row {
   margin: 0;
-  font-family: "Open Sans", sans-serif;
 }
 
 /*Ancore*/
@@ -324,6 +321,9 @@ dt {
 
 /* Header Aera */
 
+.header_area {
+  padding: 20px 100px;
+}
 .header_area .searchForm {
   height: 0;
   overflow: hidden;
@@ -369,7 +369,6 @@ dt {
 .header_area .navbar-header .navbar-brand {
   padding: 0px !important;
   display: block;
-  margin-left: 100px;
 }
 .header_area .navbar-header .navbar-brand img {
   width: 10%;
@@ -378,7 +377,6 @@ dt {
 .header_area .navbar-collapse .navbar-nav.navbar-right li a {
   text-transform: uppercase;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
   padding-left: 30px;
   color: #fff !important;
   font-size: 16px;
@@ -439,6 +437,26 @@ dt {
   transform-origin: 100% 50%;
   transition: all 800ms ease-in-out;
 }
+
+.nav-link .locale-changer .dropdown .dropdown-toggle {
+  padding: 0 20px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.nav-link .locale-changer .dropdown .dropdown-toggle:after {
+  display: none;
+}
+
+.nav-link .locale-changer .dropdown .show {
+  height: auto;
+}
+
+.nav-link .locale-changer .dropdown .dropdown-menu .dropdown-item {
+  color: #000 !important;
+  cursor: pointer;
+}
+
 .nav-link {
   white-space: nowrap;
 }
@@ -578,6 +596,7 @@ img {
   font-size: 20px;
   color: #fff;
   line-height: 40px;
+  padding: 0 20%;
 }
 .py-70 {
   padding: 70px 0px;
@@ -625,7 +644,6 @@ img {
   content: "→";
   position: absolute;
   margin-left: 5px;
-  font-family: "IntercomText", "Helvetica Neue", Helvetica, Arial, sans-serif;
   transition: transform 0.3s;
   margin-top: 2px;
   transition-duration: 1s;
@@ -2780,7 +2798,6 @@ h3.blog-title {
 ------------------------------------*/
 
 select {
-  font-family: "Cairo", sans-serif;
   min-width: 100px;
   width: 100%;
   padding: 4px;
@@ -2813,7 +2830,6 @@ select {
   right: 10%;
   left: 10%;
   min-width: 132.688px;
-  font-family: "Cairo", sans-serif;
 }
 
 @media (min-width: 780px) {

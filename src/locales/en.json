@@ -1,6 +1,7 @@
 {
   "ar": "Arabic",
   "en": "English",
+  "language": "Language",
 
   "male": "Male",
   "female": "Female",
@@ -9,6 +10,8 @@
   "heir_count": "No. of heirs",
   "share_fraction": "Share Fraction",
   "share_percentage": "Share Percentage",
+
+  "more": "More Details",
 
   "husband": "Husband",
   "wife": "Wife",

@@ -54,15 +54,28 @@
           <li class="nav-item">
             <a class="nav-link">
               <div class="locale-changer">
-                <select v-model="$i18n.locale" @change="setPageDirection">
-                  <option
-                    v-for="(lang, i) in langs"
-                    :key="`Lang${i}`"
-                    :value="lang"
+                <div class="dropdown">
+                  <button
+                    class="dropdown-toggle"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
                   >
-                    {{ $t(`${lang}`) }}
-                  </option>
-                </select>
+                    {{ $t("language") }}
+                  </button>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton1"
+                  >
+                    <li v-for="(lang, i) in langs" :key="`Lang${i}`">
+                      <a
+                        class="dropdown-item"
+                        @click="setPageDirection(lang)"
+                        >{{ $t(`${lang}`) }}</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
             </a>
           </li>
@@ -79,8 +92,9 @@ export default {
     return { langs: ["ar", "en"] };
   },
   methods: {
-    setPageDirection() {
+    setPageDirection(lang) {
       //eslint-disable-next-line
+      this.$i18n.locale = lang;
       if (this.$i18n.locale == "en") {
         document.body.style.direction = "ltr";
         require("bootstrap/dist/css/bootstrap.min.css");

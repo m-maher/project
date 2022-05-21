@@ -21,14 +21,12 @@
                   </p>
                   <!-- <p class="banner-text wow fadeInUp main-h3" data-wow-delay="0.8s">برنامج حساب المواريث طبقا لفقة الأزهر</p> -->
                   <div class="top-banner wow fadeInRight">
-                    <a
-                      id="#services"
-                      href="services.html"
+                    <router-link
                       class="btn btn-default wow fadeInUp js-scroll-trigger"
                       data-wow-delay="1s"
+                      to="/calculator"
+                      >{{ $t("home_page.main_banner.calculate") }}</router-link
                     >
-                      {{ $t("home_page.main_banner.calculate") }}
-                    </a>
                     <!-- <a id="#services"  href="services.html" class="btn btn-default  wow fadeInUp  js-scroll-trigger" data-wow-delay="1s" href="#">إحسب مسألتك الخاصة</a> -->
                   </div>
                 </div>
@@ -55,11 +53,7 @@
         <div class="container-fluid">
           <div class="row text-left about_row">
             <div class="col-md-6 p-0 clip-polygon">
-              <div class="video-img">
-                <!-- <a class="hero__play"
-                  ><img src="../assets/images/LAW-31.jpg"
-                /></a> -->
-              </div>
+              <div class="video-img"></div>
             </div>
             <div class="col-md-6 wow fadeInUp">
               <div class="title-left wow fadeInUp">
@@ -100,17 +94,11 @@
                 class="top-banner wow fadeInRight text-left"
                 style="visibility: visible; animation-name: fadeInRight"
               >
-                <a
-                  id="#services"
-                  href="#services"
+                <router-link
                   class="btn btn-default wow fadeInUp js-scroll-trigger"
                   data-wow-delay="1s"
-                  style="
-                    visibility: visible;
-                    animation-delay: 1s;
-                    animation-name: fadeInUp;
-                  "
-                  >more details</a
+                  to="/calculator"
+                  >{{ $t("more") }}</router-link
                 >
               </div>
             </div>
@@ -155,17 +143,11 @@
                 class="top-banner wow fadeInRight text-left"
                 style="visibility: visible; animation-name: fadeInRight"
               >
-                <a
-                  id="#services"
-                  href="#services"
+                <router-link
                   class="btn btn-default wow fadeInUp js-scroll-trigger"
                   data-wow-delay="1s"
-                  style="
-                    visibility: visible;
-                    animation-delay: 1s;
-                    animation-name: fadeInUp;
-                  "
-                  >more details</a
+                  to="/rules"
+                  >{{ $t("more") }}</router-link
                 >
               </div>
             </div>
@@ -220,17 +202,11 @@
                 class="top-banner wow fadeInRight text-left"
                 style="visibility: visible; animation-name: fadeInRight"
               >
-                <a
-                  id="#services"
-                  href="#services"
+                <router-link
                   class="btn btn-default wow fadeInUp js-scroll-trigger"
                   data-wow-delay="1s"
-                  style="
-                    visibility: visible;
-                    animation-delay: 1s;
-                    animation-name: fadeInUp;
-                  "
-                  >more details</a
+                  to="/articles"
+                  >{{ $t("more") }}</router-link
                 >
               </div>
             </div>
@@ -240,108 +216,6 @@
     </div>
 
     <!-- End About Us Area -->
-
-    <!--#start Our footer Area -->
-    <div class="our_footer_area">
-      <div class="book_now_aera">
-        <div class="container wow fadeInUp">
-          <div class="row book_now">
-            <div class="col-md-4">
-              <div class="">
-                <a class="logo-biss" href="index.html">
-                  <img src="assets/images/logo_img.png"
-                /></a>
-              </div>
-              <p class="footer-h">
-                It is a long established fact that a btn btn-defaulter will be
-                distracted by the btn btn-defaultable content of a page when
-                looking at its layout.
-              </p>
-              <div class="bigpixi-footer-social">
-                <a href="" target="_blank"
-                  ><i
-                    id="social-fb"
-                    class="fa fa-facebook-square fa-3x social"
-                  ></i
-                ></a>
-                <a href="" target="_blank"
-                  ><i
-                    id="social-tw"
-                    class="fa fa-twitter-square fa-3x social"
-                  ></i
-                ></a>
-                <a href="" target="_blank"
-                  ><i id="social-em" class="fa fa-instagram fa-3x social"></i
-                ></a>
-              </div>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-              <h2 class="footer-top">SOLUTIONS</h2>
-              <ul class="footer-menu">
-                <li><a href=""> SaaS </a></li>
-                <li><a href=""> Mobile </a></li>
-                <li><a href="">Commerce </a></li>
-                <li><a href=""> Gaming </a></li>
-                <li><a href=""> Finance </a></li>
-                <li><a href=""> Media </a></li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <ul class="location">
-                <li class="footer-left-h">
-                  <i class="fa fa-map-marker"></i>505 Thornall St #301, Edison,
-                  <br />NJ 08837, USA
-                </li>
-                <li class="footer-left-h">
-                  <i class="fa fa-phone"></i>Call Us <br />+1- 982-8-587 452
-                  <br />+1- 982-8-587 452
-                </li>
-                <li class="footer-left-h">
-                  <i class="fa fa-envelope-o"></i>Email
-                  <a href=""> enquiry@demo.com </a>
-                  <a href=""> enquiry@demo.com </a>
-                </li>
-                <p class="color-gray">
-                  <a href="https://themewagon.com/theme_tag/free/"
-                    >Free HTML5 Templates</a
-                  >
-                  distributed by
-                  <a href="https://themewagon.com/">ThemeWagon</a>
-                </p>
-              </ul>
-            </div>
-            <div class="col-md-12">
-              <p class="color-gray">
-                <a href="https://www.navthemes.com/free-html-templates/"
-                  >Free HTML Template</a
-                >
-                by <a href="https://www.navthemes.com">NavThemes </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--#End Our footer Area -->
-    <!-- The following is only needed when the video is in the html
-         otherwise the who .hero__overlay html can be removed -->
-    <div class="hero__overlay">
-      <div class="hero__modal">
-        <a class="hero__close" href="#">Close</a>
-        <iframe
-          allowscriptaccess="always"
-          id="hero-video"
-          class="hero__player"
-          src="https://www.youtube.com/embed/1NSA8ycGfKg?enablejsapi=1&html5=1"
-          frameborder="0"
-          webkitallowfullscreen
-          mozallowfullscreen
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-    <!-- /.hero__overlay -->
   </div>
 </template>
 
