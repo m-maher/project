@@ -31,5 +31,191 @@
   "full_paternal_uncle": "Full Paternal Uncle",
   "paternal_paternal_uncle": "Paternal Paternal Uncle",
   "full_cousin": "Full Cousin",
-  "paternal_cousin": "Paternal Cousin"
+  "paternal_cousin": "Paternal Cousin",
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "calculator": "Calculator",
+    "rules": "Rules",
+    "articles": "Articles"
+  },
+  "home_page": {
+    "main_banner": {
+      "title": "ISLAMIC INHERITANCE JURISPRUDENCE",
+      "subTitle": "(Calculation Software Based On Al-Azhar Jurisprudence)",
+      "calculate": "Calculate your case"
+    },
+    "our_services": {
+      "main_title": "What Can We Offer ?",
+      "calculator": {
+        "title": "Calculator",
+        "question": "What is the calculator ?",
+        "answer": "After Providing All Of The Necessary Information, Clicking Calculate Button Shall Show How Much Each Relative Will Inherit According To Islamic Law."
+      },
+      "rules": {
+        "title": "Rules",
+        "question": "What are the Rules of Islamic Inheritance Jurisprudence ?",
+        "answer": "The Distribution Of The Inheritance In Islamic Law Is Well Designed By God Based On Specific Rules That Differentiate The Relatives Of The Decedent Person."
+      },
+      "articles": {
+        "title": "Articles",
+        "question": "What are the Articles ?",
+        "answer": "Our Calculation Has Limits, In The Islamic Law Of Inheritance There Are Some Special Cases That Specify Who Shall Inherit And What Share They Have."
+      }
+    }
+  },
+  "about_us": {
+    "main_banner": {
+      "title": "About Us",
+      "subTitle": "This project transfer the rules of inheritance to a simple calculator that satisfy all you need to know about the Islamic inheritance law away from sophistication."
+    },
+    "about_area": {
+      "title": "About us",
+      "brief": "This project was carried out by a group of students in the Department of Computer Science at Faculty of Graduate Studies for Statistical Research in the Cairo University.",
+      "question": "Why this Topic ?",
+      "answer": "The Islamic Inheritance Jurisprudence project  provides an easy use, free of charge, and well managed web page and mobile application that offer both Calculation of inheritance in accordance with the Islamic law, and a summary of the Islamic inheritance system including rules of inheritance and its evidence from the Quraan and Hadith, reasons of disqualification of inherit, the priority of distribution, and the different ways of inheritance.",
+      "our_mission": "Our mission",
+      "mission_details": "Codification of inheritance laws is the significant achievement of this project."
+    }
+  },
+  "calculator": {
+    "main_banner": {
+      "title": "Calculator",
+      "brief": "After providing all of the necessary information, clicking calculate button shall show how much each relative will inherit according to Islamic law."
+    }
+  },
+  "articles": {
+    "main_banner": {
+      "title": "Articles",
+      "brief": "Our calculation has limits, in the Islamic law of inheritance there are some special cases that specify who shall inherit and what share they have ."
+    }
+  },
+  "rules": {
+    "main_banner": {
+      "title": "Rules",
+      "brief": "The Logical rules of the calculation based on Azhar inheritance Jurisprudence"
+    },
+    "persons": {
+      "husband": {
+        "name": "1) Husband [AnNisa 4:12]",
+        "first_state": "a. Gets 1/2",
+        "ref_1": "i. Deceased does not have any offspring",
+        "second_state": "b. Gets 1/4",
+        "ref_2": "i. Deceased has offspring"
+      },
+      "wife": {
+        "name": "2) Wife (Divided equally among all wives) [AnNisa 4:12]",
+        "first_state": "a. Gets 1/4",
+        "ref_1": "i. Deceased does not have any offspring",
+        "second_state": "b. Gets 1/8",
+        "ref_2": "i. Deceased has offspring"
+      },
+      "daughter": {
+        "name": "3) Daughter (Divided equally among all daughters)",
+        "first_state": "a. Gets 1/2 [AnNisa 4:11]",
+        "ref_1": "i. Deceased has only 1 daughter, and [AnNisa 4:11]",
+        "ref_2": "ii. Deceased does not have any sons [AnNisa 4:11]",
+        "second_state": "b. Gets 2/3 [AnNisa 4:11]",
+        "ref_3": "i. Deceased has multiple daughters, and [AnNisa 4:11]",
+        "ref_4": "ii. Deceased does not have any sons [AnNisa 4:11]"
+      },
+      "grand_daughter": {
+        "name": "4) Grand Daughter (from son only)",
+        "first_state": "a. Gets 1/2",
+        "ref_1": "i. Deceased has only 1 Grand daughter from a son",
+        "ref_2": "ii. Deceased does not have a son or a daughter",
+        "ref_3": "iii. Deceased does not have a Grandson from a son",
+        "second_state": "b. Gets 2/3",
+        "ref_4": "i. Deceased has multiple Granddaughters from a son",
+        "ref_5": "ii. Deceased does not have a son or a daughter",
+        "ref_6": "iii. Deceased does not have a Grandson from a son",
+        "third_state": "c. Gets 1/6 (H1)",
+        "ref_7": "i. Deceased has just one daughter",
+        "ref_8": "ii. Deceased does not have a son",
+        "ref_9": "iii. Deceased does not have a Grandson from a son"
+      },
+      "father": {
+        "name": "5) Father [AnNisa 4:11]",
+        "first_state": "a. Gets 1/6",
+        "ref_1": "i. Deceased has offspring"
+      },
+      "mother": {
+        "name": "6) Mother [AnNisa 4:11]",
+        "first_state": "a. Gets 1/3",
+        "ref_1": "i. Deceased does not have any offspring, and",
+        "ref_2": "ii. Deceased does not have multiple siblings (full, paternal, maternal)",
+        "second_state": "b. Gets 1/6",
+        "ref_3": "i. Deceased has offspring, or",
+        "ref_4": "ii. Deceased has multiple siblings (full, paternal, maternal)"
+      },
+      "paternal_grand_father": {
+        "name": "7) Paternal Grand Father",
+        "first_state": "a. Gets 1/6",
+        "ref_1": "i. Deceased does not have a father",
+        "ref_2": "ii. Deceased has offspring"
+      },
+      "paternal_grand_mother": {
+        "name": "8) Paternal Grand Mother",
+        "first_state": "a. Gets 1/6",
+        "ref_1": "i. Deceased does not have a mother",
+        "ref_2": "ii. Deceased does not have a father",
+        "ref_3": "iii. Deceased does not have a maternal grandmother",
+        "second_state": "b. Gets 1/12",
+        "ref_4": "i. Deceased does not have a mother",
+        "ref_5": "ii. Deceased does not have a father",
+        "ref_6": "iii. Deceased has a maternal grandmother"
+      },
+      "maternal_grand_mother": {
+        "name": "9) Maternal Grand Mother",
+        "first_state": "a. Gets 1/6",
+        "ref_1": "i. Deceased does not have a mother",
+        "second_state": "b. Gets 1/12",
+        "ref_2": "i. Deceased does not have a mother",
+        "ref_3": "ii. Deceased does not have a father",
+        "ref_4": "iii. Deceased has a paternal grandmother"
+      },
+      "full_sister": {
+        "name": "10) Full Sister",
+        "first_state": "a. Gets 1/2 [AnNisa 4:176]",
+        "ref_1": "i. Deceased has only 1 full sister",
+        "ref_2": "ii. Deceased does not have any offspring",
+        "ref_3": "iii. Deceased does not have any male paternal ancestor",
+        "ref_4": "iv. Deceased does not have any full brother",
+        "second_state": "b. Gets 2/3 [AnNisa 4:176]",
+        "ref_5": "i. Deceased has multiple full sisters",
+        "ref_6": "ii. Deceased does not have any offspring",
+        "ref_7": "iii. Deceased does not have any male paternal ancestor",
+        "ref_8": "iv. Deceased does not have any full brother"
+      },
+      "paternal_sister": {
+        "name": "11) Paternal Sister",
+        "first_state": "a. Gets 1/2",
+        "ref_1": "i. Deceased has only 1 paternal sister",
+        "ref_2": "ii. Deceased does not have any offspring",
+        "ref_3": "iii. Deceased does not have any male paternal ancestor",
+        "ref_4": "iv. Deceased does not have any full brother, full sister or paternal brother",
+        "second_state": "b. Gets 2/3",
+        "ref_5": "i. Deceased has multiple paternal sisters",
+        "ref_6": "ii. Deceased does not have any offspring",
+        "ref_7": "iii. Deceased does not have any male paternal ancestor",
+        "ref_8": "iv. Deceased does not have any full brother, full sister or paternal brother",
+        "third_state": "c. Gets 1/6",
+        "ref_9": "i. Deceased has just 1 full sister",
+        "ref_10": "ii. Deceased does not have any offspring",
+        "ref_11": "iii. Deceased does not have any male paternal ancestor",
+        "ref_12": " iv. Deceased does not have any full brother or paternal brother"
+      },
+      "maternal_sibling": {
+        "name": "12) Maternal Sibling [AnNisa 4:12]",
+        "first_state": "a. Gets 1/6",
+        "ref_1": "i. Deceased has only 1 maternal sibling",
+        "ref_2": "ii. Deceased does not have any male offspring",
+        "ref_3": "iii. Deceased does not have any male paternal ancestors",
+        "second_state": "b. Gets 1/3",
+        "ref_4": "i. Deceased has multiple maternal siblings",
+        "ref_5": "ii. Deceased does not have any male offspring",
+        "ref_6": "iii. Deceased does not have any male paternal ancestors Residual Shares (H2)"
+      }
+    }
+  }
 }

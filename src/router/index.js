@@ -2,8 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/HomePage.vue";
 import About from "@/views/AboutPage.vue";
-import Services from "@/views/ServicesPage.vue";
-import Blog from "@/views/BlogPage.vue";
+import Calculator from "@/views/CalculatorPage.vue";
+import Rules from "@/views/RulesPage.vue";
+import Articles from "@/views/ArticlesPage.vue";
 import Contact from "@/views/ContactPage.vue";
 
 Vue.use(VueRouter);
@@ -21,14 +22,19 @@ let router = new VueRouter({
       component: About,
     },
     {
-      path: "/services",
-      name: "services",
-      component: Services,
+      path: "/calculator",
+      name: "calculator ",
+      component: Calculator,
     },
     {
-      path: "/blog",
-      name: "blog",
-      component: Blog,
+      path: "/rules",
+      name: "rules",
+      component: Rules,
+    },
+    {
+      path: "/articles",
+      name: "articles",
+      component: Articles,
     },
     {
       path: "/contact",

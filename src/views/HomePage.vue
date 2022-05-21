@@ -3,57 +3,6 @@
     <div class="bg-grediunt">
       <div class="bg-banner-img clip-ellipse">
         <div class="overlay">
-          <!-- Header_Area -->
-
-          <!-- 
-          <nav class="navbar navbar-default header_aera affix-top">
-            <div class="container m-s">
-
-              <div class="col-md-4 p0">
-                <div class="navbar-header">
-                  <button
-                    type="button"
-                    class="navbar-toggle collapsed"
-                    data-toggle="collapse"
-                    data-target="#min_navbar"
-                  >
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand logo-biss" href="index.html">
-                    <img src="assets/images/logo_img.png"
-                  /></a>
-                </div>
-              </div>
-
-              <div class="col-md-8 p0">
-                <div class="collapse navbar-collapse" id="min_navbar">
-                  <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown submenu">
-                      <a href="index.html" class="">Home</a>
-                    </li>
-                    <li class="dropdown submenu">
-                      <a href="about.html" class="">About</a>
-                    </li>
-                    <li class="dropdown submenu">
-                      <a href="services.html" class=""> Services</a>
-                    </li>
-                    <li class="dropdown submenu">
-                      <a href="blog.html" class="">Blog</a>
-                    </li>
-                    <li class="dropdown submenu">
-                      <a href="contact.html" class="">Contact</a>
-                    </li>
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-
-          </nav> -->
-          <!-- End Header_Area -->
           <!-- #banner start -->
           <section id="banner" class="mb-90">
             <div class="container">
@@ -61,25 +10,26 @@
                 <!-- #banner-text start -->
                 <div id="banner-text" class="col-md-12 text-c text-center">
                   <h5 class="wow fadeInUp main-h" data-wow-delay="0.2s">
-                    End-to-End Customer Journey Analytics
+                    {{ $t("home_page.main_banner.title") }}
                   </h5>
+                  <!-- <h5 class="wow fadeInUp main-h" data-wow-delay="0.2s" >فقة المواريث الاسلامي</h5> -->
                   <p
                     class="banner-text wow fadeInUp main-h3"
                     data-wow-delay="0.8s"
                   >
-                    No hours sank into aggregating and cleaning data. No complex
-                    SQL queries required. Just the answers <br />
-                    teams need to make smarter decisions, fast. Now, that's
-                    data-driven.
+                    {{ $t("home_page.main_banner.subTitle") }}
                   </p>
+                  <!-- <p class="banner-text wow fadeInUp main-h3" data-wow-delay="0.8s">برنامج حساب المواريث طبقا لفقة الأزهر</p> -->
                   <div class="top-banner wow fadeInRight">
                     <a
                       id="#services"
-                      href="contact.html"
+                      href="services.html"
                       class="btn btn-default wow fadeInUp js-scroll-trigger"
                       data-wow-delay="1s"
-                      >GeT STARTED FOR FREE</a
                     >
+                      {{ $t("home_page.main_banner.calculate") }}
+                    </a>
+                    <!-- <a id="#services"  href="services.html" class="btn btn-default  wow fadeInUp  js-scroll-trigger" data-wow-delay="1s" href="#">إحسب مسألتك الخاصة</a> -->
                   </div>
                 </div>
                 <!-- /#banner-text End -->
@@ -88,109 +38,32 @@
           </section>
         </div>
       </div>
-
       <!-- /#banner end -->
-
-      <!--#Our Partners Area -->
-      <div class="our_partners_area py-70 pt_banner_30">
-        <div class="container">
-          <!--#Our Partners assets/images start -->
-          <div class="partners wow fadeInUp">
-            <div class="item">
-              <img src="assets/images/client_logo/client_logo-1.png" alt="" />
-            </div>
-            <div class="item">
-              <img src="assets/images/client_logo/client_logo-2.png" alt="" />
-            </div>
-            <div class="item">
-              <img src="assets/images/client_logo/client_logo-3.png" alt="" />
-            </div>
-            <div class="item">
-              <img src="assets/images/client_logo/client_logo-4.png" alt="" />
-            </div>
-            <div class="item">
-              <img src="assets/images/client_logo/client_logo-5.png" alt="" />
-            </div>
-          </div>
-          <!--#End Our Partners assets/images -->
-        </div>
-      </div>
     </div>
     <!--#End Our Partners Area -->
     <!-- #About Us Area start -->
     <div id="about" class="back-right-text-c">
       <div class="container">
-        <div class="row text-center mb-60">
+        <div class="row text-center">
           <div class="title wow fadeInUp">
-            <h1>Analytics for Product, Marketing, Sales and Support teams</h1>
+            <h1>{{ $t("home_page.our_services.main_title") }}</h1>
+            <!-- <h1>ماذا نقدم لك ؟</h1> -->
           </div>
-        </div>
-        <div class="row about_row py-40">
-          <!--#about-text start -->
-          <div class="who_we_area col-md-4 col-sm-6 col-4pad wow fadeInUp">
-            <div class="service-1">
-              <div class="servise-top wow fadeInUp">
-                <img src="assets/images/icone-1.png" />
-              </div>
-              <h2 class="unify">Unify</h2>
-              <p class="bottom-s">
-                It is a long established fact that a btn btn-defaulter will be
-                distracted by the btn btn-defaultable content of a page when
-                looking at its layout.
-              </p>
-              <div class="button-div">
-                <a href="" class="button-s"> Learn more </a>
-              </div>
-            </div>
-          </div>
-          <div class="who_we_area col-md-4 col-sm-6 col-4pad wow fadeInUp">
-            <div class="service-1">
-              <div class="servise-top wow fadeInUp">
-                <img src="assets/images/icone-2.png" />
-              </div>
-              <h2 class="unify">Analyze</h2>
-              <p class="bottom-s">
-                It is a long established fact that a btn btn-defaulter will be
-                distracted by the btn btn-defaultable content of a page when
-                looking at its layout.
-              </p>
-              <div class="button-div">
-                <a href="" class="button-s"> Learn more </a>
-              </div>
-            </div>
-          </div>
-          <div class="who_we_area col-md-4 col-sm-6 col-4pad wow fadeInUp">
-            <div class="service-1">
-              <div class="servise-top wow fadeInUp">
-                <img src="assets/images/icone-3.png" />
-              </div>
-              <h2 class="unify">Engage</h2>
-              <p class="bottom-s">
-                It is a long established fact that a btn btn-defaulter will be
-                distracted by the btn btn-defaultable content of a page when
-                looking at its layout.
-              </p>
-              <div class="button-div">
-                <a href="" class="button-s"> Learn more </a>
-              </div>
-            </div>
-          </div>
-          <!--#End about-text  -->
         </div>
       </div>
-      <section class="">
+      <section>
         <div class="container-fluid">
           <div class="row text-left about_row">
             <div class="col-md-6 p-0 clip-polygon">
               <div class="video-img">
-                <a href="#nogo" class="hero__play"
-                  ><img src="assets/images/img-g.png"
+                <a class="hero__play"
+                  ><img src="../assets/images/LAW-31.jpg"
                 /></a>
               </div>
             </div>
             <div class="col-md-6 wow fadeInUp">
               <div class="title-left wow fadeInUp">
-                <h1
+                <h2
                   class="text-left wow fadeInUp"
                   data-wow-delay="1s"
                   style="
@@ -199,16 +72,18 @@
                     animation-name: fadeInUp;
                   "
                 >
-                  Optimize Every Touchpoint in the Customer Experience
-                </h1>
+                  {{ $t("home_page.our_services.calculator.title") }}
+                </h2>
+                <!-- <h2 class="text-left wow fadeInUp " data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">حاسبة المواريث</h2> -->
               </div>
               <p
                 class="about_h wow fadeInUp"
                 data-wow-delay="1s"
                 style="visibility: visible; animation-name: fadeInRight"
               >
-                Analytics to answer any business question.
+                {{ $t("home_page.our_services.calculator.question") }}
               </p>
+              <!-- <p class="about_h wow fadeInUp " data-wow-delay="1s" style="visibility: visible; animation-name: fadeInRight;">ما هي حاسبة المواريث ؟</p> -->
               <p
                 class="about_bottom_h wow fadeInUp"
                 data-wow-delay="1s"
@@ -218,11 +93,9 @@
                   animation-name: fadeInUp;
                 "
               >
-                Full-funnel attribution, onboarding optimization, feature usage
-                trends, subscription growth, cohort analysis and more. Know
-                exactly what users are doing across touchpoints to increase
-                acquisition, drive engagement and improve retention.
+                {{ $t("home_page.our_services.calculator.answer") }}
               </p>
+              <!-- <p class="about_bottom_h wow fadeInUp " data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">بعد تقديم جميع المعلومات الضرورية ، سيظهر النقر فوق زر الحساب مقدار ما سيرثه كل قريب وفقًا للشريعة الإسلامية كل وارث .</p> -->
               <div
                 class="top-banner wow fadeInRight text-left"
                 style="visibility: visible; animation-name: fadeInRight"
@@ -237,7 +110,127 @@
                     animation-delay: 1s;
                     animation-name: fadeInUp;
                   "
-                  >Learn more</a
+                  >more details</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="row text-left about_row c_about_row">
+            <div class="col-md-6 wow fadeInUp">
+              <div class="title-left wow fadeInUp">
+                <h2
+                  class="text-left wow fadeInUp"
+                  data-wow-delay="1s"
+                  style="
+                    visibility: visible;
+                    animation-delay: 1s;
+                    animation-name: fadeInUp;
+                  "
+                >
+                  {{ $t("home_page.our_services.rules.title") }}
+                </h2>
+                <!-- <h2 class="text-left wow fadeInUp " data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">القواعد</h2  > -->
+              </div>
+              <p
+                class="about_h wow fadeInUp"
+                data-wow-delay="1s"
+                style="visibility: visible; animation-name: fadeInRight"
+              >
+                {{ $t("home_page.our_services.rules.question") }}
+              </p>
+              <!-- <p class="about_h wow fadeInUp " data-wow-delay="1s" style="visibility: visible; animation-name: fadeInRight;">ما هي قواعد فقة المواريث الإسلامي ؟</p> -->
+              <p
+                class="about_bottom_h wow fadeInUp"
+                data-wow-delay="1s"
+                style="
+                  visibility: visible;
+                  animation-delay: 1s;
+                  animation-name: fadeInUp;
+                "
+              >
+                {{ $t("home_page.our_services.rules.answer") }}
+              </p>
+              <!-- <p class="about_bottom_h wow fadeInUp " data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">إن توزيع الميراث في الشريعة الإسلامية صممه الله جيدًا بناءً على قواعد محددة تفرق بين أقارب المتوفى.</p> -->
+              <div
+                class="top-banner wow fadeInRight text-left"
+                style="visibility: visible; animation-name: fadeInRight"
+              >
+                <a
+                  id="#services"
+                  href="#services"
+                  class="btn btn-default wow fadeInUp js-scroll-trigger"
+                  data-wow-delay="1s"
+                  style="
+                    visibility: visible;
+                    animation-delay: 1s;
+                    animation-name: fadeInUp;
+                  "
+                  >more details</a
+                >
+              </div>
+            </div>
+            <div class="col-md-6 p-0 clip-polygon">
+              <div class="video-img">
+                <!-- <a href="#nogo" class="hero__play"><img  src="assets/images/img-g.png"></a> -->
+              </div>
+            </div>
+          </div>
+          <div class="row text-left about_row">
+            <div class="col-md-6 p-0 clip-polygon">
+              <div class="video-img">
+                <!-- <a href="#nogo" class="hero__play"><img  src="assets/images/img-g.png"></a> -->
+              </div>
+            </div>
+            <div class="col-md-6 wow fadeInUp">
+              <div class="title-left wow fadeInUp">
+                <h2
+                  class="text-left wow fadeInUp"
+                  data-wow-delay="1s"
+                  style="
+                    visibility: visible;
+                    animation-delay: 1s;
+                    animation-name: fadeInUp;
+                  "
+                >
+                  {{ $t("home_page.our_services.articles.title") }}
+                </h2>
+                <!-- <h2 class="text-left wow fadeInUp " data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">المقالات</h2  > -->
+              </div>
+              <p
+                class="about_h wow fadeInUp"
+                data-wow-delay="1s"
+                style="visibility: visible; animation-name: fadeInRight"
+              >
+                {{ $t("home_page.our_services.articles.question") }}
+              </p>
+              <!-- <p class="about_h wow fadeInUp " data-wow-delay="1s" style="visibility: visible; animation-name: fadeInRight;">ماذا تقدم المقالات ؟</p> -->
+              <p
+                class="about_bottom_h wow fadeInUp"
+                data-wow-delay="1s"
+                style="
+                  visibility: visible;
+                  animation-delay: 1s;
+                  animation-name: fadeInUp;
+                "
+              >
+                {{ $t("home_page.our_services.articles.answer") }}
+              </p>
+              <!-- <p class="about_bottom_h wow fadeInUp " data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">حساباتنا لها حدود ، في الشريعة الإسلامية للميراث هناك بعض الحالات الخاصة التي تحدد من سيرث وما هو نصيبه.</p> -->
+              <div
+                class="top-banner wow fadeInRight text-left"
+                style="visibility: visible; animation-name: fadeInRight"
+              >
+                <a
+                  id="#services"
+                  href="#services"
+                  class="btn btn-default wow fadeInUp js-scroll-trigger"
+                  data-wow-delay="1s"
+                  style="
+                    visibility: visible;
+                    animation-delay: 1s;
+                    animation-name: fadeInUp;
+                  "
+                  >more details</a
                 >
               </div>
             </div>
@@ -245,138 +238,9 @@
         </div>
       </section>
     </div>
-    <div class="container-fluid">
-      <div class="row text-left about_row mr-0 wow fadeInUp">
-        <div class="col-md-6 pl-40 wow fadeInUp">
-          <div class="title-left wow fadeInUp">
-            <h1 class="text-left">
-              Optimize Every Touchpoint in the Customer Experience
-            </h1>
-          </div>
-          <p class="about_h">Analytics to answer any business question.</p>
-          <p class="about_bottom_h">
-            Full-funnel attribution, onboarding optimization, feature usage
-            trends, subscription growth, cohort analysis and more. Know exactly
-            what users are doing across touchpoints to increase acquisition,
-            drive engagement and improve retention.
-          </p>
-          <div
-            class="top-banner wow fadeInRight text-left"
-            style="visibility: visible; animation-name: fadeInRight"
-          >
-            <a
-              id="#services"
-              href="#services"
-              class="btn btn-default wow fadeInUp js-scroll-trigger"
-              data-wow-delay="1s"
-              style="
-                visibility: visible;
-                animation-delay: 1s;
-                animation-name: fadeInUp;
-              "
-              >Learn more</a
-            >
-          </div>
-        </div>
-        <div class="col-md-6 pr-0 clip-right">
-          <p class="py-200"></p>
-        </div>
-      </div>
-    </div>
+
     <!-- End About Us Area -->
-    <!--#Our Testimonial Area start-->
-    <section id="testimonials" class="testimonial_area row">
-      <div class="container">
-        <div class="title wow fadeInUp"></div>
-        <div class="testimonial_carosel">
-          <div class="item">
-            <div class="media">
-              <div class="media-left">
-                <a href="#">
-                  <img
-                    class="media-object"
-                    src="assets/images/testimonial-3.jpg"
-                    alt=""
-                  />
-                </a>
-              </div>
-            </div>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting<br />
-              industry. Lorem Ipsum has been the industry's standard dummy
-              text<br />
-              ever since the 1500s,
-            </p>
-            <div class="media-body text-center">
-              <h4 class="body-slider media-heading">
-                Lorem Ipsum is simply dummy text
-              </h4>
-              <div class="img-s">
-                <img src="assets/images/logos-s.png" />
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="media">
-              <div class="media-left">
-                <a href="#">
-                  <img
-                    class="media-object"
-                    src="assets/images/testimonial-2.jpg"
-                    alt=""
-                  />
-                </a>
-              </div>
-            </div>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting<br />
-              industry. Lorem Ipsum has been the industry's standard dummy
-              text<br />
-              ever since the 1500s,
-            </p>
-            <div class="media-body text-center">
-              <h4 class="body-slider media-heading">
-                Lorem Ipsum is simply dummy text
-              </h4>
-              <div class="img-s">
-                <img src="assets/images/logos-s.png" />
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="media">
-              <div class="media-left">
-                <a href="#">
-                  <img
-                    class="media-object"
-                    src="assets/images/testimonial-1.jpg"
-                    alt=""
-                  />
-                </a>
-              </div>
-            </div>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting<br />
-              industry. Lorem Ipsum has been the industry's standard dummy
-              text<br />
-              ever since the 1500s,
-            </p>
-            <div class="media-body text-center">
-              <h4 class="body-slider media-heading">
-                Lorem Ipsum is simply dummy text
-              </h4>
-              <div class="img-s">
-                <img src="assets/images/logos-s.png" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--#End Our testimonial Area -->
+
     <!--#start Our footer Area -->
     <div class="our_footer_area">
       <div class="book_now_aera">

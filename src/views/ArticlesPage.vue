@@ -9,16 +9,13 @@
               <!-- #banner-text start -->
               <div id="banner-text" class="col-md-12 text-c text-center">
                 <h5 class="wow fadeInUp main-h" data-wow-delay="0.2s">
-                  Blog page
+                  {{ $t("articles.main_banner.title") }}
                 </h5>
                 <p
                   class="banner-text wow fadeInUp main-h3"
                   data-wow-delay="0.8s"
                 >
-                  No hours sank into aggregating and cleaning data. No complex
-                  SQL queries required. Just the answers <br />
-                  teams need to make smarter decisions, fast. Now, that's
-                  data-driven.
+                  {{ $t("articles.main_banner.brief") }}
                 </p>
               </div>
               <!-- /#banner-text End -->
@@ -36,7 +33,7 @@
           <div class="col-md-4 col-sm-6 col-xs-12 col">
             <div class="blog-wrap mb-30">
               <div class="blog-img">
-                <img src="assets/images/blog/1.jpg" alt="" />
+                <img src="../assets/images/blog/1.jpg" alt="" />
               </div>
               <div class="blog-content wow fadeInUp">
                 <div class="blog-meta">
@@ -68,7 +65,7 @@
           <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp">
             <div class="blog-wrap mb-30">
               <div class="blog-img">
-                <img src="assets/images/blog/2.jpg" alt="" />
+                <img src="../assets/images/blog/2.jpg" alt="" />
               </div>
               <div class="blog-content">
                 <div class="blog-meta">
@@ -98,7 +95,7 @@
           <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp">
             <div class="blog-wrap mb-30">
               <div class="blog-img">
-                <img src="assets/images/blog/3.jpg" alt="" />
+                <img src="../assets/images/blog/3.jpg" alt="" />
               </div>
               <div class="blog-content">
                 <div class="blog-meta">
@@ -131,7 +128,7 @@
           <div class="col-md-4 col-sm-6 col-xs-12 mt-50 wow fadeInUp">
             <div class="blog-wrap mb-30">
               <div class="blog-img">
-                <img src="assets/images/blog/4.jpg" alt="" />
+                <img src="../assets/images/blog/4.jpg" alt="" />
               </div>
               <div class="blog-content">
                 <div class="blog-meta">
@@ -161,7 +158,7 @@
           <div class="col-md-4 col-sm-6 col-xs-12 mt-50 wow fadeInUp">
             <div class="blog-wrap mb-30">
               <div class="blog-img">
-                <img src="assets/images/blog/5.jpg" alt="" />
+                <img src="../assets/images/blog/5.jpg" alt="" />
               </div>
               <div class="blog-content">
                 <div class="blog-meta">
@@ -191,7 +188,7 @@
           <div class="col-md-4 col-sm-6 col-xs-12 mt-50 wow fadeInUp">
             <div class="blog-wrap mb-30">
               <div class="blog-img">
-                <img src="assets/images/blog/6.jpg" alt="" />
+                <img src="../assets/images/blog/6.jpg" alt="" />
               </div>
               <div class="blog-content">
                 <div class="blog-meta">
