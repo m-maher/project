@@ -11,6 +11,15 @@
   "share_fraction": "Share Fraction",
   "share_percentage": "Share Percentage",
 
+  "ref": {
+    "heir": "Heir",
+    "causing": "Causing",
+    "proofType": "Proof Type",
+    "noQVerse": "noQVerse",
+    "surahQName": "Surah Quran Name",
+    "textAr": "Text Ar"
+  },
+
   "more": "More Details",
 
   "husband": "Husband",

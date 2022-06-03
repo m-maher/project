@@ -101,17 +101,36 @@
               </div>
             </div>
             <div class="col-md-10">
+              <h2 v-if="finalData.length != 0">الدليل</h2>
               <div
                 v-for="item in finalData"
                 :key="item.id"
                 class="border border-dark mb-5 p-4"
               >
-                <p>{{ $t(`${item.name}`) }}</p>
-                <p>{{ item.causing }}</p>
-                <p>{{ item.proofType }}</p>
-                <p>{{ item.noQVerse }}</p>
-                <p>{{ item.surahQName }}</p>
-                <p>{{ item.textAr }}</p>
+                <p v-if="item.name != null">
+                  <span class="fw-bold">{{ $t("ref.heir") }}: </span
+                  >{{ $t(`${item.name}`) }}
+                </p>
+                <p v-if="item.causing != null">
+                  <span class="fw-bold">{{ $t("ref.causing") }}: </span
+                  >{{ item.causing }}
+                </p>
+                <p v-if="item.proofType != null">
+                  <span class="fw-bold">{{ $t("ref.proofType") }}: </span
+                  >{{ item.proofType }}
+                </p>
+                <p v-if="item.noQVerse != null">
+                  <span class="fw-bold">{{ $t("ref.noQVerse") }}: </span
+                  >{{ item.noQVerse }}
+                </p>
+                <p v-if="item.surahQName != null">
+                  <span class="fw-bold">{{ $t("ref.surahQName") }}: </span
+                  >{{ item.surahQName }}
+                </p>
+                <p v-if="item.textAr != null">
+                  <span class="fw-bold">{{ $t("ref.textAr") }}: </span
+                  >{{ item.textAr }}
+                </p>
               </div>
             </div>
           </div>
@@ -501,10 +520,9 @@ export default {
           // full_sister
           if (item.name == i && i == "full_sister" && selection[i] != 0) {
             results.forEach((result) => {
-              // full_sister share 1/2
+              // single full_sister without full_brother
               if (
                 result.name == "full_sister" &&
-                result.share == "1/2" &&
                 result.count == 1 &&
                 (selection.full_brother == undefined ||
                   selection.full_brother == 0) &&
@@ -512,10 +530,9 @@ export default {
               ) {
                 this.finalData.push(item);
               }
-              // full_sister share 2/3
+              // multiple full_sister without full_brother
               if (
                 result.name == "full_sister" &&
-                result.share == "2/3" &&
                 result.count > 1 &&
                 (selection.full_brother == undefined ||
                   selection.full_brother == 0) &&
@@ -524,6 +541,23 @@ export default {
                 this.finalData.push(item);
               }
             });
+            // full_sister with full_brother
+            if (
+              selection.full_brother != undefined &&
+              selection.full_brother != 0 &&
+              item.propId == 40
+            ) {
+              this.finalData.push(item);
+            }
+            // full_sister with female
+            if (
+              ((selection.daughter != undefined && selection.daughter != 0) ||
+                (selection.paternal_grand_daughter != undefined &&
+                  selection.paternal_grand_daughter != 0)) &&
+              item.propId == 41
+            ) {
+              this.finalData.push(item);
+            }
           }
 
           // paternal_sister
@@ -764,12 +798,13 @@ export default {
               // paternal_grand_father share 1/6
               if (
                 result.name == "paternal_grand_father" &&
-                result.share == "1/6" &&
-                (selection.father == undefined || selection.father == 0)
+                result.share == "1/6"
               ) {
                 // paternal_grand_father without father or male
                 if (
-                  (selection.son == undefined ||
+                  (selection.father == undefined ||
+                    selection.father == 0 ||
+                    selection.son == undefined ||
                     selection.son == 0 ||
                     selection.paternal_grand_son == undefined ||
                     selection.paternal_grand_son == 0) &&
@@ -779,7 +814,9 @@ export default {
                 }
                 // paternal_grand_father without father or female
                 if (
-                  (selection.daughter == undefined ||
+                  (selection.father == undefined ||
+                    selection.father == 0 ||
+                    selection.daughter == undefined ||
                     selection.daughter == 0 ||
                     selection.paternal_grand_daughter == undefined ||
                     selection.paternal_grand_daughter == 0) &&
@@ -805,31 +842,13 @@ export default {
             i == "paternal_grand_mother" &&
             selection[i] != 0
           ) {
-            results.forEach((result) => {
-              // paternal_grand_mother share 1/6
-              if (
-                result.name == "paternal_grand_mother" &&
-                result.share == "1/6" &&
-                (selection.father == undefined || selection.father == 0) &&
-                (selection.mother == undefined || selection.mother == 0) &&
-                item.propId == 66
-              ) {
-                this.finalData.push(item);
-              }
-
-              // paternal_grand_mother share 1/8
-              if (
-                result.name == "paternal_grand_mother" &&
-                result.share == "1/8" &&
-                (selection.father == undefined || selection.father == 0) &&
-                (selection.mother == undefined || selection.mother == 0) &&
-                selection.maternal_grand_mother != undefined &&
-                selection.maternal_grand_mother != 0 &&
-                item.propId == 67
-              ) {
-                this.finalData.push(item);
-              }
-            });
+            if (
+              (selection.father == undefined || selection.father == 0) &&
+              (selection.mother == undefined || selection.mother == 0) &&
+              item.propId == 66
+            ) {
+              this.finalData.push(item);
+            }
           }
 
           // maternal_grand_mother
@@ -838,31 +857,13 @@ export default {
             i == "maternal_grand_mother" &&
             selection[i] != 0
           ) {
-            results.forEach((result) => {
-              // maternal_grand_mother share 1/6
-              if (
-                result.name == "maternal_grand_mother" &&
-                result.share == "1/6" &&
-                (selection.father == undefined || selection.father == 0) &&
-                (selection.mother == undefined || selection.mother == 0) &&
-                item.propId == 68
-              ) {
-                this.finalData.push(item);
-              }
-
-              // maternal_grand_mother share 1/8
-              if (
-                result.name == "maternal_grand_mother" &&
-                result.share == "1/8" &&
-                (selection.father == undefined || selection.father == 0) &&
-                (selection.mother == undefined || selection.mother == 0) &&
-                selection.maternal_grand_mother != undefined &&
-                selection.maternal_grand_mother != 0 &&
-                item.propId == 69
-              ) {
-                this.finalData.push(item);
-              }
-            });
+            if (
+              (selection.father == undefined || selection.father == 0) &&
+              (selection.mother == undefined || selection.mother == 0) &&
+              item.propId == 68
+            ) {
+              this.finalData.push(item);
+            }
           }
         });
       }

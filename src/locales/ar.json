@@ -11,6 +11,15 @@
   "share_fraction": "حصة الكسر",
   "share_percentage": "نسبة المشاركة",
 
+  "ref": {
+    "heir": "الوريث",
+    "causing": "السبب",
+    "proofType": "المصدر ",
+    "noQVerse": "رقم الايه",
+    "surahQName": "السوره",
+    "textAr": "النص"
+  },
+
   "more": "المزيد من التفاصيل",
 
   "husband": "الزوج",
