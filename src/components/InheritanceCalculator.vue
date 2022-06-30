@@ -4,12 +4,12 @@
       <div class="row justify-content-center py-5">
         <div class="col-md-10" v-if="isForm">
           <div class="row justify-content-center mb-5">
-            <div class="col-2">
+            <div class="col-lg-2 col-md-4">
               <div class="d-flex align-items-center h-100">
                 <h2>{{ $t("type_of_deceased") }}</h2>
               </div>
             </div>
-            <div class="col-3">
+            <div class="col-lg-3 col-md-4 col-6">
               <label>
                 <input
                   type="radio"
@@ -19,7 +19,7 @@
                 <span>{{ $t("male") }}</span>
               </label>
             </div>
-            <div class="col-3">
+            <div class="col-lg-3 col-md-4 col-6">
               <label>
                 <input
                   type="radio"
@@ -31,10 +31,10 @@
             </div>
           </div>
           <div class="row justify-content-center mb-3">
-            <div class="col-2">
+            <div class="col-lg-2 col-md-4 col-4">
               <h2>{{ $t("heir_type") }}</h2>
             </div>
-            <div class="col-6">
+            <div class="col-lg-6 col-md-8 col-8">
               <h2>{{ $t("heir_count") }}</h2>
             </div>
           </div>
@@ -44,12 +44,15 @@
               v-if="heirs[name] != null"
               :key="index"
             >
-              <div class="col-2">
-                <label for="inputState" class="form-label" style="font-size: 20px;">{{
-                  $t(`${name}`)
-                }}</label>
+              <div class="col-lg-2 col-md-4 col-4">
+                <label
+                  for="inputState"
+                  class="form-label"
+                  style="font-size: 20px"
+                  >{{ $t(`${name}`) }}</label
+                >
               </div>
-              <div class="col-6">
+              <div class="col-lg-6 col-md-8 col-8">
                 <select
                   id="inputState"
                   class="form-select"
@@ -84,17 +87,10 @@
           </div>
         </div>
         <div class="col-md-10" v-if="isResult">
-          <div class="row justify-content-center my-5">
-            <div class="col-8 d-flex justify-content-start">
-              <button class="submit-calculation" @click="isForm=true;isResult=false;">
-                {{ $t("back") }}
-              </button>
-            </div>
-          </div>
           <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-lg-8">
               <div>
-                <table class="table table-hover">
+                <table class="table table-hover" style="border: 1px solid">
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">{{ $t("heir_type") }}</th>
@@ -119,8 +115,10 @@
                 </table>
               </div>
             </div>
-            <div class="col-md-8">
-              <h2 v-if="finalData.length != 0" class="mb-4">{{ $t("legal_guide") }}</h2>
+            <div class="col-lg-8">
+              <h2 v-if="finalData.length != 0" class="mb-4">
+                {{ $t("legal_guide") }}
+              </h2>
               <div v-for="item in finalData" :key="item.id" class="ref-item">
                 <p v-if="item.name != null">
                   <span class="fw-bold">{{ $t("ref.heir") }}: </span
@@ -147,6 +145,19 @@
                   >{{ item.textAr }}
                 </p>
               </div>
+            </div>
+          </div>
+          <div class="row justify-content-center my-5">
+            <div class="col-8 d-flex justify-content-center">
+              <button
+                class="submit-calculation"
+                @click="
+                  isForm = true;
+                  isResult = false;
+                "
+              >
+                {{ $t("back") }}
+              </button>
             </div>
           </div>
         </div>
