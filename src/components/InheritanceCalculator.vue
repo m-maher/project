@@ -2,9 +2,14 @@
   <div class="hello">
     <div class="container-fluid">
       <div class="row justify-content-center py-5">
-        <div class="col-md-6">
-          <div class="row justify-content-center mb-3">
-            <div class="col-4">
+        <div class="col-md-10" v-if="isForm">
+          <div class="row justify-content-center mb-5">
+            <div class="col-2">
+              <div class="d-flex align-items-center h-100">
+                <h2>{{ $t("type_of_deceased") }}</h2>
+              </div>
+            </div>
+            <div class="col-3">
               <label>
                 <input
                   type="radio"
@@ -14,7 +19,7 @@
                 <span>{{ $t("male") }}</span>
               </label>
             </div>
-            <div class="col-4">
+            <div class="col-3">
               <label>
                 <input
                   type="radio"
@@ -26,7 +31,7 @@
             </div>
           </div>
           <div class="row justify-content-center mb-3">
-            <div class="col-4">
+            <div class="col-2">
               <h2>{{ $t("heir_type") }}</h2>
             </div>
             <div class="col-6">
@@ -39,8 +44,8 @@
               v-if="heirs[name] != null"
               :key="index"
             >
-              <div class="col-4">
-                <label for="inputState" class="form-label">{{
+              <div class="col-2">
+                <label for="inputState" class="form-label" style="font-size: 20px;">{{
                   $t(`${name}`)
                 }}</label>
               </div>
@@ -70,10 +75,24 @@
               </div>
             </div>
           </template>
+          <div class="row justify-content-center my-5">
+            <div class="col-8 d-flex justify-content-center">
+              <button class="submit-calculation" @click="selectedHeirs">
+                {{ $t("calculate") }}
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-10" v-if="isResult">
+          <div class="row justify-content-center my-5">
+            <div class="col-8 d-flex justify-content-start">
+              <button class="submit-calculation" @click="isForm=true;isResult=false;">
+                {{ $t("back") }}
+              </button>
+            </div>
+          </div>
           <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-8">
               <div>
                 <table class="table table-hover">
                   <thead class="thead-light">
@@ -92,7 +111,7 @@
                     >
                       <td>{{ $t(`${item.name}`) }}</td>
                       <td>{{ item.count }}</td>
-                      <td>{{ item.type }}</td>
+                      <td>{{ $t(`${item.type}`) }}</td>
                       <td>{{ item.share.toFraction() }}</td>
                       <td>{{ toPercentage(item.share).toFixed(2) }}%</td>
                     </tr>
@@ -100,13 +119,9 @@
                 </table>
               </div>
             </div>
-            <div class="col-md-10">
-              <h2 v-if="finalData.length != 0">الدليل</h2>
-              <div
-                v-for="item in finalData"
-                :key="item.id"
-                class="border border-dark mb-5 p-4"
-              >
+            <div class="col-md-8">
+              <h2 v-if="finalData.length != 0" class="mb-4">{{ $t("legal_guide") }}</h2>
+              <div v-for="item in finalData" :key="item.id" class="ref-item">
                 <p v-if="item.name != null">
                   <span class="fw-bold">{{ $t("ref.heir") }}: </span
                   >{{ $t(`${item.name}`) }}
@@ -153,11 +168,11 @@ label {
 
     &:checked {
       + span {
-        background-color: rgba(228, 0, 23, 0.1);
-        color: #e40017;
+        background-color: rgba(39, 37, 185, 0.1);
+        color: #2725b9d4;
 
         &:hover {
-          border: 1px solid #d4d4d4;
+          border: 1px solid #2725b9d4;
         }
       }
     }
@@ -173,7 +188,7 @@ label {
     transition: all 0.5s;
 
     &:hover {
-      border: 1px solid #e40017;
+      border: 1px solid #2725b9d4;
     }
   }
 }
@@ -185,6 +200,7 @@ import {
   calculate,
 } from "@hu-bcs1/islamic-inheritance-calculator";
 import data from "./data";
+import axios from "axios";
 
 export default {
   name: "InheritanceCalculator",
@@ -198,6 +214,9 @@ export default {
       allSelectedHeirs: "",
       heirsRef: "",
       finalData: "",
+      isForm: true,
+      isResult: false,
+      isValueSelected: false,
     };
   },
   methods: {
@@ -207,7 +226,8 @@ export default {
       obj[name] = value;
       //eslint-disable-next-line
       this.selected = { ...this.selected, ...obj };
-      this.selectedHeirs(this.selected);
+      // this.selectedHeirs(this.selected);
+      this.isValueSelected = true;
     },
     range: (end) => [...Array(end).keys()],
     maxCount: (heir) => {
@@ -222,15 +242,30 @@ export default {
           return 20;
       }
     },
-    selectedHeirs: function (heirs) {
+    async getData() {
+      let apiUrl =
+        "https://inheritanceapielmerath.azurewebsites.net/api/DistributProbabilities/GetDatafromviewall";
+      axios.get(apiUrl);
+      try {
+        const response = await axios.get(apiUrl);
+        console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    selectedHeirs: function () {
       this.results = [];
-      this.allSelectedHeirs = heirs;
+      this.allSelectedHeirs = this.selected;
       //eslint-disable-next-line
       if (this.allSelectedHeirs != "") {
         this.results = calculate(this.allSelectedHeirs);
       }
       // this.printResults(this.results);
       this.getRef(this.allSelectedHeirs, this.results);
+      if (this.isValueSelected) {
+        this.isForm = false;
+        this.isResult = true;
+      }
     },
     printResults: function (results) {
       const fractionToString = (r) => ({ ...r, share: r.share.toFraction() });
@@ -872,6 +907,7 @@ export default {
     },
     chooseGender(gender) {
       this.isDisabled = false;
+      this.isValueSelected = false;
       this.selected = {};
       this.selectedHeirs("");
       for (let item in this.heirs) {
@@ -888,6 +924,7 @@ export default {
     },
   },
   mounted() {
+    // await this.getData();
     this.heirsRef = data;
     this.heirs.husband = null;
     this.heirs.wife = null;
