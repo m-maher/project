@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="bg-banner-img clip-ellipse">
+    <div class="bg-banner-img">
       <div class="overlay">
         <!-- #banner start -->
-        <section id="banner" class="pt-0">
+        <section id="banner">
           <div class="container">
             <div class="row">
               <!-- #banner-text start -->

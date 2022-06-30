@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="bg-grediunt">
-      <div class="bg-banner-img clip-ellipse">
+      <div class="bg-banner-img">
         <div class="overlay">
           <!-- #banner start -->
           <section id="banner" class="mb-90">

@@ -556,7 +556,7 @@ dt {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 450px;
+  height: 350px;
 }
 .clip-ellipse {
   clip-path: ellipse(95% 100% at top);
@@ -1652,7 +1652,7 @@ a {
 }
 
 section {
-  padding: 70px 0px;
+  padding: 40px 0px;
 }
 
 .main-h {
@@ -1662,7 +1662,7 @@ section {
   text-align: center;
   font-weight: bold;
   text-transform: capitalize;
-  margin: 100px 0 40px;
+  margin: 50px 0;
   -webkit-animation-delay: 150ms;
   animation-delay: 150ms;
   visibility: visible;
