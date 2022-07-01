@@ -252,18 +252,18 @@
         "full_brother_full_sister": "4. الأخ الشقيق ، الأخت الشقيقة",
         "paternal_brother_paternal_sister": "5. الأخ الأب ، أخت لأب",
         "paternal_grandfather": "6. جد لأب",
-        "full_brother`s_son": "7. إبن الأخ الشقيق",
-        "paternal_brother`s_son": "8. إبن الأخ لأب",
-        "full_brother`s_son`s_son": "9. إبن إبن الأخ الشقيق",
-        "paternal_brother_son`s_son": "10. إبن الأخ الشقيق للإبن",
+        "full_brothers_son": "7. إبن الأخ الشقيق",
+        "paternal_brothers_son": "8. إبن الأخ لأب",
+        "full_brothers_sons_son": "9. إبن إبن الأخ الشقيق",
+        "paternal_brother_sons_son": "10. إبن الأخ الشقيق للإبن",
         "paternal_uncle": "11. العم لأب (الأخ الشقيق للأب)",
         "paternal_paternal_uncle": "12. العم لأب (الأخ لأب لأب)",
-        "paternal_uncle`s_son": "13. ابن العم (ابن شقيق الأب)",
-        "paternal_paternal_uncle`s_son": "14) ابن العم لأب (ابن الأخ للأب)",
-        "paternal_uncle`s_son`s_son": "15. ابن ابن العم (ابن ابن شقيق الأب)",
-        "paternal_paternal_uncle`s_son`s_son": "16. ابن ابن العم لأب (ابن ابن شقيق الأب)",
-        "paternal_uncle`s_son`s_son`s_son": "17. ابن ابن ابن خاله (ابن ابن شقيقه وابن ابنه)",
-        "paternal_paternal_uncle`s_son`s_son`s_son": "18. ابن ابن ابن عمه وابن عمه (ابن وابن شقيقه وابنه)"
+        "paternal_uncles_son": "13. ابن العم (ابن شقيق الأب)",
+        "paternal_paternal_uncles_son": "14) ابن العم لأب (ابن الأخ للأب)",
+        "paternal_uncles_sons_son": "15. ابن ابن العم (ابن ابن شقيق الأب)",
+        "paternal_paternal_uncles_sons_son": "16. ابن ابن العم لأب (ابن ابن شقيق الأب)",
+        "paternal_uncles_sons_sons_son": "17. ابن ابن ابن خاله (ابن ابن شقيقه وابن ابنه)",
+        "paternal_paternal_uncles_sons_sons_son": "18. ابن ابن ابن عمه وابن عمه (ابن وابن شقيقه وابنه)"
       }
     }
   }

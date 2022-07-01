@@ -252,18 +252,18 @@
         "full_brother_full_sister": "4. Full Brother, Full sister",
         "paternal_brother_paternal_sister": "5. Paternal Brother, Paternal Sister",
         "paternal_grandfather": "6. Paternal Grandfather",
-        "full_brother's_son": "7. Full brother’s son",
-        "paternal_brother's_son": "8. Paternal brother’s son",
-        "full_brother's_son's_son": "9. Full brother’s son’s son",
-        "paternal_brother_son's_son": "10. Paternal brother son’s son",
+        "full_brothers_son": "7. Full brother’s son",
+        "paternal_brothers_son": "8. Paternal brother’s son",
+        "full_brothers_sons_son": "9. Full brother’s son’s son",
+        "paternal_brother_sons_son": "10. Paternal brother son’s son",
         "paternal_uncle": "11. Paternal uncle (father’s full brother)",
         "paternal_paternal_uncle": "12. Paternal paternal uncle (father’s paternal brother)",
-        "paternal_uncle's_son": "13. Paternal uncle’s son (father’s brother’s son)",
-        "paternal_paternal_uncle's_son": "14) Paternal paternal uncle’s son (father’s paternal brother’s son)",
-        "paternal_uncle's_son's_son": "15. Paternal uncle’s son’s son (father’s brother’s son’ s son)",
-        "paternal_paternal_uncle's_son's_son": "16. Paternal paternal uncle’s son’s son (father’s paternal brother’s son’s son)",
-        "paternal_uncle's_son's_son's_son": "17. Paternal uncle’s son’s son’s son (father’s brother’s son’ s son’s son)",
-        "paternal_paternal_uncle's_son's_son's_son": "18. Paternal paternal uncle’s son’s son’s son (father’s paternal brother’s son’s son’s son)"
+        "paternal_uncles_son": "13. Paternal uncle’s son (father’s brother’s son)",
+        "paternal_paternal_uncles_son": "14) Paternal paternal uncle’s son (father’s paternal brother’s son)",
+        "paternal_uncles_sons_son": "15. Paternal uncle’s son’s son (father’s brother’s son’ s son)",
+        "paternal_paternal_uncles_sons_son": "16. Paternal paternal uncle’s son’s son (father’s paternal brother’s son’s son)",
+        "paternal_uncles_sons_sons_son": "17. Paternal uncle’s son’s son’s son (father’s brother’s son’ s son’s son)",
+        "paternal_paternal_uncles_sons_sons_son": "18. Paternal paternal uncle’s son’s son’s son (father’s paternal brother’s son’s son’s son)"
       }
     }
   }

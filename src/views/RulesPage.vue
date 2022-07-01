@@ -182,29 +182,29 @@
                     {{ $t("rules.persons.tasib.paternal_brother_paternal_sister") }}
                   </li>
                   <li>{{ $t("rules.persons.tasib.paternal_grandfather") }}</li>
-                  <li>{{ $t("rules.persons.tasib.full_brother`s_son") }}</li>
-                  <li>{{ $t("rules.persons.tasib.paternal_brother`s_son") }}</li>
-                  <li>{{ $t("rules.persons.tasib.full_brother`s_son`s_son") }}</li>
-                  <li>{{ $t("rules.persons.tasib.paternal_brother_son`s_son") }}</li>
+                  <li>{{ $t("rules.persons.tasib.full_brothers_son") }}</li>
+                  <li>{{ $t("rules.persons.tasib.paternal_brothers_son") }}</li>
+                  <li>{{ $t("rules.persons.tasib.full_brothers_sons_son") }}</li>
+                  <li>{{ $t("rules.persons.tasib.paternal_brother_sons_son") }}</li>
                   <li>{{ $t("rules.persons.tasib.paternal_uncle") }}</li>
                   <li>{{ $t("rules.persons.tasib.paternal_paternal_uncle") }}</li>
-                  <li>{{ $t("rules.persons.tasib.paternal_uncle`s_son") }}</li>
+                  <li>{{ $t("rules.persons.tasib.paternal_uncles_son") }}</li>
                   <li>
-                    {{ $t("rules.persons.tasib.paternal_paternal_uncle`s_son") }}
+                    {{ $t("rules.persons.tasib.paternal_paternal_uncles_son") }}
                   </li>
-                  <li>{{ $t("rules.persons.tasib.paternal_uncle`s_son`s_son") }}</li>
+                  <li>{{ $t("rules.persons.tasib.paternal_uncles_sons_son") }}</li>
                   <li>
                     {{
-                      $t("rules.persons.tasib.paternal_paternal_uncle`s_son`s_son")
+                      $t("rules.persons.tasib.paternal_paternal_uncles_sons_son")
                     }}
                   </li>
                   <li>
-                    {{ $t("rules.persons.tasib.paternal_uncle`s_son`s_son`s_son") }}
+                    {{ $t("rules.persons.tasib.paternal_uncles_sons_sons_son") }}
                   </li>
                   <li>
                     {{
                       $t(
-                        "rules.persons.tasib.paternal_paternal_uncle`s_son`s_son`s_son"
+                        "rules.persons.tasib.paternal_paternal_uncles_sons_sons_son"
                       )
                     }}
                   </li>
