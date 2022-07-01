@@ -486,8 +486,8 @@ dt {
 }
 
 .notes span {
- margin-bottom: 15px;
- display: inline-block;
+  margin-bottom: 15px;
+  display: inline-block;
 }
 
 .notes ul {
@@ -496,7 +496,7 @@ dt {
 
 .notes li {
   margin-bottom: 15px;
- }
+}
 
 @media (min-width: 768px) {
   .header_area .navbar-collapse .navbar-nav.navbar-right li:hover.submenu ul {
@@ -2073,6 +2073,10 @@ iframe {
 .blog-content p {
   margin-bottom: 20px;
   line-height: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .blog-content a.btn-style {
   border: 1px solid #296dc1;

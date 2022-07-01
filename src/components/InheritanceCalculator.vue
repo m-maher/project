@@ -235,8 +235,6 @@ import {
   defaultHeirs,
   calculate,
 } from "@hu-bcs1/islamic-inheritance-calculator";
-// import data from "./data";
-import axios from "axios";
 
 export default {
   name: "InheritanceCalculator",
@@ -276,16 +274,6 @@ export default {
           return 4;
         default:
           return 20;
-      }
-    },
-    async getData() {
-      let apiUrl =
-        "https://inheritanceapielmerath.azurewebsites.net/api/DistributProbabilities/GetDatafromviewall";
-      try {
-        const response = await axios.get(apiUrl);
-        this.heirsRef = response.data;
-      } catch (error) {
-        console.error(error);
       }
     },
     selectedHeirs: function () {
@@ -959,8 +947,7 @@ export default {
     },
   },
   async mounted() {
-    await this.getData();
-    // this.heirsRef = data;
+    this.heirsRef = this.$store.getters.heirsData
     this.heirs.husband = null;
     this.heirs.wife = null;
     this.heirNames = Object.keys(this.heirs);

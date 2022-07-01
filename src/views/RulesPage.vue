@@ -34,7 +34,8 @@
           <div class="col-md-12">
             <div class="blog-details-wrap">
               <div class="blog-details-img text-center">
-                <img src="../assets/images/chart.jpg" alt="" />
+                <img v-if="$i18n.locale == 'ar'" src="../assets/images/chart_ar.jpg" alt="" />
+                <img v-else src="../assets/images/chart_en.jpg" alt="" />
               </div>
               <div class="blog-details-content wow fadeInUp">
                 <h3>{{ $t("rules.persons.husband.name") }}</h3>

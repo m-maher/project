@@ -19,6 +19,10 @@ export default {
   },
   mounted() {
     document.body.style.direction = "rtl";
+
+    this.$store.dispatch("getHeirsData");
+    this.$store.dispatch("getArticlesData");
+
     var wow = new WOW({
       boxClass: "wow",
       animateClass: "animated",

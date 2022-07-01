@@ -30,26 +30,54 @@
     <section class="blog-area ptb-140 bg-1">
       <div class="container">
         <div class="row">
-          <div class="col-md-4 col-sm-6 col-xs-12 col">
+          <div
+            class="col-md-4 col-sm-6 col-xs-12 col mb-5"
+            v-for="(item, index) in articles"
+            :key="index"
+          >
             <div class="blog-wrap mb-30">
               <div class="blog-img">
-                <img src="../assets/images/banner-img.jpg" alt="" />
+                <router-link
+                  v-if="item.image == '' || item.image == null"
+                  :to="`articleDetails/${item.id}`"
+                >
+                  <img src="../../assets/images/banner-img.jpg" />
+                </router-link>
+                <div v-else>
+                  <img
+                    :src="item.image"
+                    :alt="item.title"
+                    @error="replaceByDefault"
+                  />
+                </div>
               </div>
               <div class="blog-content wow fadeInUp">
                 <h3>
-                  <a href="blog-single.html">wonderful serenity has taken</a>
+                  <router-link
+                    v-if="$i18n.locale == 'ar'"
+                    :to="`articleDetails/${item.id}`"
+                  >
+                    {{ item.title }}
+                  </router-link>
+                  <router-link v-else :to="`articleDetails/${item.id}`">{{
+                    item.titleEn
+                  }}</router-link>
                 </h3>
-                <p>
-                  wonderful serenity has taken possession of my entire soul,
-                  like these sweet mornings of spring which I enjoy
+                <p v-if="$i18n.locale == 'ar'">
+                  {{ item.body }}
                 </p>
-                <a href="blog-single.html" class="btn btn-default btn_font_16"
-                  >Read More</a
+                <p v-else>
+                  {{ item.bodyEn }}
+                </p>
+                <router-link
+                  :to="`articleDetails/${item.id}`"
+                  class="btn btn-default btn_font_16"
+                  >{{ $t("read_more") }}</router-link
                 >
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp">
+          <!-- <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp">
             <div class="blog-wrap mb-30">
               <div class="blog-img">
                 <img src="../assets/images/banner-img.jpg" alt="" />
@@ -85,7 +113,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4 col-sm-6 col-xs-12 mt-50 wow fadeInUp">
             <div class="blog-wrap mb-30">
               <div class="blog-img">
@@ -136,7 +163,7 @@
                 >
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -146,6 +173,18 @@
 
 <script>
 export default {
-  name: "BlogPage",
+  data() {
+    return {
+      articles: [],
+    };
+  },
+  methods: {
+    replaceByDefault(e) {
+      e.target.src = "../assets/images/banner-img.jpg";
+    },
+  },
+  mounted() {
+    this.articles = this.$store.getters.articlesData;
+  },
 };
 </script>
