@@ -3,10 +3,10 @@ module.exports = defineConfig({
   transpileDependencies: true,
   pluginOptions: {
     i18n: {
-      locale: 'ar',
-      fallbackLocale: 'ar',
-      localeDir: 'locales',
-      enableInSFC: true
-    }
-  }
+      locale: "ar",
+      fallbackLocale: "ar",
+      localeDir: "locales",
+      enableInSFC: true,
+    },
+  },
 });

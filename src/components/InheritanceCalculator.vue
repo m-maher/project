@@ -85,6 +85,31 @@
               </button>
             </div>
           </div>
+          <div class="row justify-content-center mt-5">
+            <div class="col-8">
+              <div class="notes">
+                <span>{{ $t("calculator.notes.title") }}</span>
+                <ul>
+                  <li>
+                    {{ $t("calculator.notes.first_note") }}
+                  </li>
+                  <li>
+                    {{ $t("calculator.notes.second_note") }}
+                  </li>
+                  <li>
+                    {{ $t("calculator.notes.third_note") }}
+                  </li>
+                  <li>
+                    <span>{{ $t("calculator.notes.fourth_note") }}</span>
+                    <ul>
+                      <li>{{ $t("calculator.notes.first_sub") }}</li>
+                      <li>{{ $t("calculator.notes.second_sub") }}</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-md-10" v-if="isResult">
           <div class="row justify-content-center">
@@ -210,7 +235,7 @@ import {
   defaultHeirs,
   calculate,
 } from "@hu-bcs1/islamic-inheritance-calculator";
-import data from "./data";
+// import data from "./data";
 import axios from "axios";
 
 export default {
@@ -256,10 +281,9 @@ export default {
     async getData() {
       let apiUrl =
         "https://inheritanceapielmerath.azurewebsites.net/api/DistributProbabilities/GetDatafromviewall";
-      axios.get(apiUrl);
       try {
         const response = await axios.get(apiUrl);
-        console.log(response);
+        this.heirsRef = response.data;
       } catch (error) {
         console.error(error);
       }
@@ -934,9 +958,9 @@ export default {
       return fr.mul(100).valueOf();
     },
   },
-  mounted() {
-    // await this.getData();
-    this.heirsRef = data;
+  async mounted() {
+    await this.getData();
+    // this.heirsRef = data;
     this.heirs.husband = null;
     this.heirs.wife = null;
     this.heirNames = Object.keys(this.heirs);

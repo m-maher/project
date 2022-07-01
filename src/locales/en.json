@@ -101,6 +101,15 @@
     "main_banner": {
       "title": "Calculator",
       "brief": "After providing all of the necessary information, clicking calculate button shall show how much each relative will inherit according to Islamic law."
+    },
+    "notes": {
+      "title": "Please note:",
+      "first_note": "Non-Muslim relatives are not eligible for inheritance. They might, however, receive the (Wesyah)",
+      "second_note": "If the wife is expecting a child delivery, then the baby will receive the share.(  read more about pregnancy inheritance rules)",
+      "third_note": "Relatives not in the above list are not among the standard heirs. They are not eligible for inheritance but they might receive inheritance according to (Mirath Zawy Elarham- read more about it).",
+      "fourth_note": "There are special cases in inheritance that may affect the result of cases read more about such as",
+      "first_sub": "Absent inheritance rules",
+      "second_sub": "Obligatory Will ( Egyptian law special case)."
     }
   },
   "articles": {

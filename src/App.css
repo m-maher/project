@@ -481,6 +481,23 @@ dt {
   font-size: 24px;
 }
 
+.notes {
+  font-size: 22px;
+}
+
+.notes span {
+ margin-bottom: 15px;
+ display: inline-block;
+}
+
+.notes ul {
+  list-style: disc;
+}
+
+.notes li {
+  margin-bottom: 15px;
+ }
+
 @media (min-width: 768px) {
   .header_area .navbar-collapse .navbar-nav.navbar-right li:hover.submenu ul {
     transform: rotateX(0deg);
