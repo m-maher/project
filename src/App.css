@@ -2159,6 +2159,7 @@ ul {
 }
 .blog-details-content ul li::before,
 .blog-details-content ul li::after {
+  display: none;
   position: absolute;
   left: 0;
   top: 50%;
