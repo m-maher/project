@@ -970,10 +970,10 @@ export default {
     toPercentage: (fr) => {
       return fr.mul(100).valueOf();
     },
-    calcAmount (fr) {
+    calcAmount(fr) {
       console.log(fr);
       let percentage = fr.mul(100).valueOf();
-      let amount = (percentage / 100) * this.Amount
+      let amount = (percentage / 100) * this.Amount;
       return amount;
     },
   },
