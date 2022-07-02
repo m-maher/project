@@ -2893,3 +2893,24 @@ select {
     }
   }
 }
+
+
+@media (max-width: 768px) {
+  .header_area .navbar-header .navbar-brand img {
+    width: 50%;
+  }
+
+  .all-text {
+    padding: 160px 15px;
+  }
+}
+
+@media (max-width: 599px) {
+  .header_area .navbar-header .navbar-brand img {
+    width: 20%;
+  }
+
+  .header_area .navbar-header {
+    height: unset;
+  }
+}

@@ -6,7 +6,6 @@ import Calculator from "@/views/CalculatorPage.vue";
 import Rules from "@/views/RulesPage.vue";
 import Articles from "@/views/Articles/ArticlesPage.vue";
 import ArticleDetails from "@/views/Articles/ArticleDetails.vue";
-import Contact from "@/views/ContactPage.vue";
 
 Vue.use(VueRouter);
 
@@ -41,11 +40,6 @@ let router = new VueRouter({
       path: "/articleDetails/:id",
       name: "articleDetails",
       component: ArticleDetails,
-    },
-    {
-      path: "/contact",
-      name: "contact",
-      component: Contact,
     },
   ],
   mode: "history",

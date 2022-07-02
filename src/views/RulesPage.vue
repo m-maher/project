@@ -11,14 +11,12 @@
                 <h5 class="wow fadeInUp main-h" data-wow-delay="0.2s">
                   {{ $t("rules.main_banner.title") }}
                 </h5>
-                <!-- <h5 class="wow fadeInUp main-h" data-wow-delay="0.2s">قواعد المواريث</h5> -->
                 <p
                   class="banner-text wow fadeInUp main-h3"
                   data-wow-delay="0.8s"
                 >
                   {{ $t("rules.main_banner.brief") }}
                 </p>
-                <!-- <p class="banner-text wow fadeInUp main-h3" data-wow-delay="0.8s">القواعد المنطقية لحساب المواريث طبقا لفقة الأزهر الشريف</p> -->
               </div>
               <!-- /#banner-text End -->
             </div>

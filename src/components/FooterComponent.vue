@@ -4,16 +4,14 @@
       <div class="book_now_aera">
         <div class="container wow fadeInUp">
           <div class="row book_now">
-            <div class="col-md-4">
+            <div class="col-md-8">
               <div class="">
                 <a class="logo-biss" href="index.html">
                   <img src="../assets/images/logo_img.png"
                 /></a>
               </div>
               <p class="footer-h">
-                It is a long established fact that a btn btn-defaulter will be
-                distracted by the btn btn-defaultable content of a page when
-                looking at its layout.
+                {{ $t("about_us.about_area.answer") }}
               </p>
               <div class="bigpixi-footer-social">
                 <a href="" target="_blank"
@@ -35,39 +33,31 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-3">
-              <h2 class="footer-top">SOLUTIONS</h2>
+              <!-- <h2 class="footer-top">SOLUTIONS</h2> -->
               <ul class="footer-menu">
-                <li><a href=""> SaaS </a></li>
-                <li><a href=""> Mobile </a></li>
-                <li><a href="">Commerce </a></li>
-                <li><a href=""> Gaming </a></li>
-                <li><a href=""> Finance </a></li>
-                <li><a href=""> Media </a></li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <ul class="location">
-                <li class="footer-left-h">
-                  <i class="fa fa-map-marker"></i>505 Thornall St #301, Edison,
-                  <br />NJ 08837, USA
+                <li class="nav-item">
+                  <router-link to="/">{{ $t("navbar.home") }}</router-link>
                 </li>
-                <li class="footer-left-h">
-                  <i class="fa fa-phone"></i>Call Us <br />+1- 982-8-587 452
-                  <br />+1- 982-8-587 452
+                <li class="nav-item">
+                  <router-link to="/calculator">{{
+                    $t("navbar.calculator")
+                  }}</router-link>
                 </li>
-                <li class="footer-left-h">
-                  <i class="fa fa-envelope-o"></i>Email<br />
-                  <a href=""> enquiry@demo.com </a>
-                  <br />
-                  <a href=""> enquiry@demo.com </a>
+                <li class="nav-item">
+                  <router-link to="/rules">{{
+                    $t("navbar.rules")
+                  }}</router-link>
                 </li>
-                <p class="color-gray">
-                  <a href="https://themewagon.com/theme_tag/free/"
-                    >Free HTML5 Templates</a
-                  >
-                  distributed by
-                  <a href="https://themewagon.com/">ThemeWagon</a>
-                </p>
+                <li class="nav-item">
+                  <router-link to="/articles">{{
+                    $t("navbar.articles")
+                  }}</router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link to="/about">{{
+                    $t("navbar.about")
+                  }}</router-link>
+                </li>
               </ul>
             </div>
           </div>

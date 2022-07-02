@@ -86,7 +86,7 @@
             </div>
           </div>
           <div class="row justify-content-center mt-5">
-            <div class="col-8">
+            <div class="col-lg-8 col-12">
               <div class="notes">
                 <span>{{ $t("calculator.notes.title") }}</span>
                 <ul>
@@ -260,7 +260,6 @@ export default {
       obj[name] = value;
       //eslint-disable-next-line
       this.selected = { ...this.selected, ...obj };
-      // this.selectedHeirs(this.selected);
       this.isValueSelected = true;
     },
     range: (end) => [...Array(end).keys()],
@@ -283,7 +282,6 @@ export default {
       if (this.allSelectedHeirs != "") {
         this.results = calculate(this.allSelectedHeirs);
       }
-      // this.printResults(this.results);
       this.getRef(this.allSelectedHeirs, this.results);
       if (this.isValueSelected) {
         this.isForm = false;
@@ -947,7 +945,7 @@ export default {
     },
   },
   async mounted() {
-    this.heirsRef = this.$store.getters.heirsData
+    this.heirsRef = this.$store.getters.heirsData;
     this.heirs.husband = null;
     this.heirs.wife = null;
     this.heirNames = Object.keys(this.heirs);

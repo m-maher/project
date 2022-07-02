@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg header_area bg-dark">
+    <nav class="navbar navbar-expand-md header_area bg-dark">
       <!-- <a class="navbar-brand" href="#"><img src="assets/images/logo_img.png"></a> -->
       <div class="navbar-header">
         <router-link class="navbar-brand" to="/"
