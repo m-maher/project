@@ -30,7 +30,7 @@
               </label>
             </div>
           </div>
-          <div class="row justify-content-center mb-3">
+          <div class="row justify-content-center mb-5">
             <div class="col-lg-2 col-md-4 col-4">
               <h2>{{ $t("inheritance_amount") }}</h2>
             </div>
