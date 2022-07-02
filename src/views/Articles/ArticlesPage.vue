@@ -97,7 +97,13 @@ export default {
     },
   },
   mounted() {
-    this.articles = this.$store.getters.articlesData;
+    if (this.$store.getters.articlesData.length != 0) {
+      localStorage.setItem(
+        "articles",
+        JSON.stringify(this.$store.getters.articlesData)
+      );
+    }
+    this.articles = JSON.parse(localStorage.getItem("articles"));
   },
 };
 </script>

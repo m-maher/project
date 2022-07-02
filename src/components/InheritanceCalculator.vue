@@ -260,6 +260,7 @@ export default {
       obj[name] = value;
       //eslint-disable-next-line
       this.selected = { ...this.selected, ...obj };
+      // this.selectedHeirs(this.selected);
       this.isValueSelected = true;
     },
     range: (end) => [...Array(end).keys()],
@@ -282,6 +283,7 @@ export default {
       if (this.allSelectedHeirs != "") {
         this.results = calculate(this.allSelectedHeirs);
       }
+      // this.printResults(this.results);
       this.getRef(this.allSelectedHeirs, this.results);
       if (this.isValueSelected) {
         this.isForm = false;
@@ -294,7 +296,6 @@ export default {
     },
     getRef(selection, results) {
       results = this.printResults(results);
-      console.log(results);
       this.finalData = [];
       for (let i in selection) {
         this.heirsRef.forEach((item) => {
@@ -924,7 +925,6 @@ export default {
         });
       }
       this.finalData = new Set(this.finalData);
-      console.log(this.finalData);
     },
     chooseGender(gender) {
       this.isDisabled = false;
@@ -945,7 +945,14 @@ export default {
     },
   },
   async mounted() {
-    this.heirsRef = this.$store.getters.heirsData;
+    if (this.$store.getters.heirsData.length != 0) {
+      localStorage.setItem(
+        "heirsRef",
+        JSON.stringify(this.$store.getters.heirsData)
+      );
+    }
+    this.heirsRef = JSON.parse(localStorage.getItem("heirsRef"))
+
     this.heirs.husband = null;
     this.heirs.wife = null;
     this.heirNames = Object.keys(this.heirs);

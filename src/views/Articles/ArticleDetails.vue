@@ -83,8 +83,13 @@ export default {
     },
   },
   mounted() {
-    this.articleDetails =
-      this.$store.getters.articlesData[this.$route.params.id - 1];
+    if (this.$store.getters.articlesData.length != 0) {
+      localStorage.setItem(
+        "articleDetails",
+        JSON.stringify(this.$store.getters.articlesData[this.$route.params.id - 1])
+      );
+    }
+    this.articleDetails = JSON.parse(localStorage.getItem("articleDetails"));
   },
 };
 </script>
