@@ -32,6 +32,14 @@
           </div>
           <div class="row justify-content-center mb-3">
             <div class="col-lg-2 col-md-4 col-4">
+              <h2>{{ $t("inheritance_amount") }}</h2>
+            </div>
+            <div class="col-lg-6 col-md-8 col-8">
+              <input v-model="Amount" class="form-input" type="number" />
+            </div>
+          </div>
+          <div class="row justify-content-center mb-3">
+            <div class="col-lg-2 col-md-4 col-4">
               <h2>{{ $t("heir_type") }}</h2>
             </div>
             <div class="col-lg-6 col-md-8 col-8">
@@ -123,6 +131,7 @@
                       <th scope="col">{{ $t("share_type") }}</th>
                       <th scope="col">{{ $t("share_fraction") }}</th>
                       <th scope="col">{{ $t("share_percentage") }}</th>
+                      <th scope="col">{{ $t("amount") }}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -135,6 +144,7 @@
                       <td>{{ $t(`${item.type}`) }}</td>
                       <td>{{ item.share.toFraction() }}</td>
                       <td>{{ toPercentage(item.share).toFixed(2) }}%</td>
+                      <td>{{ calcAmount(item.share).toFixed(2) }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -267,6 +277,7 @@ export default {
       isForm: true,
       isResult: false,
       isValueSelected: false,
+      Amount: "",
     };
   },
   methods: {
@@ -958,6 +969,12 @@ export default {
     },
     toPercentage: (fr) => {
       return fr.mul(100).valueOf();
+    },
+    calcAmount (fr) {
+      console.log(fr);
+      let percentage = fr.mul(100).valueOf();
+      let amount = (percentage / 100) * this.Amount
+      return amount;
     },
   },
   async mounted() {

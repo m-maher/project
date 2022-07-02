@@ -10,6 +10,7 @@
   "heir_count": "No. of heirs",
   "share_fraction": "Share Fraction",
   "share_percentage": "Share Percentage",
+  "amount": "Amount",
   "type_of_deceased": "Type of Deceased",
   "legal_guide": "Legal Guide",
   "calculate": "Calculate",
@@ -26,6 +27,7 @@
 
   "more": "More Details",
   "read_more": "Read More",
+  "inheritance_amount": "inheritance amount",
 
   "tasib": "Tasib",
   "fard": "Fard",
