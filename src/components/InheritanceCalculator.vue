@@ -149,25 +149,41 @@
                   <span class="fw-bold">{{ $t("ref.heir") }}: </span
                   >{{ $t(`${item.name}`) }}
                 </p>
-                <p v-if="item.causing != null">
+                <p v-if="item.causing != null && $i18n.locale == 'ar'">
                   <span class="fw-bold">{{ $t("ref.causing") }}: </span
                   >{{ item.causing }}
                 </p>
-                <p v-if="item.proofType != null">
+                <p v-if="item.causingEn != null && $i18n.locale == 'en'">
+                  <span class="fw-bold">{{ $t("ref.causing") }}: </span
+                  >{{ item.causingEn }}
+                </p>
+                <p v-if="item.proofType != null && $i18n.locale == 'ar'">
                   <span class="fw-bold">{{ $t("ref.proofType") }}: </span
                   >{{ item.proofType }}
+                </p>
+                <p v-if="item.proofTypeEn != null && $i18n.locale == 'en'">
+                  <span class="fw-bold">{{ $t("ref.proofType") }}: </span
+                  >{{ item.proofTypeEn }}
                 </p>
                 <p v-if="item.noQVerse != null">
                   <span class="fw-bold">{{ $t("ref.noQVerse") }}: </span
                   >{{ item.noQVerse }}
                 </p>
-                <p v-if="item.surahQName != null">
+                <p v-if="item.surahQName != null && $i18n.locale == 'ar'">
                   <span class="fw-bold">{{ $t("ref.surahQName") }}: </span
                   >{{ item.surahQName }}
                 </p>
-                <p v-if="item.textAr != null">
+                <p v-if="item.surahQNameEn != null && $i18n.locale == 'en'">
+                  <span class="fw-bold">{{ $t("ref.surahQName") }}: </span
+                  >{{ item.surahQNameEn }}
+                </p>
+                <p v-if="item.textAr != null && $i18n.locale == 'ar'">
                   <span class="fw-bold">{{ $t("ref.textAr") }}: </span
                   >{{ item.textAr }}
+                </p>
+                <p v-if="item.textEn != null && $i18n.locale == 'en'">
+                  <span class="fw-bold">{{ $t("ref.textAr") }}: </span
+                  >{{ item.textEn }}
                 </p>
               </div>
             </div>
@@ -951,7 +967,7 @@ export default {
         JSON.stringify(this.$store.getters.heirsData)
       );
     }
-    this.heirsRef = JSON.parse(localStorage.getItem("heirsRef"))
+    this.heirsRef = JSON.parse(localStorage.getItem("heirsRef"));
 
     this.heirs.husband = null;
     this.heirs.wife = null;
